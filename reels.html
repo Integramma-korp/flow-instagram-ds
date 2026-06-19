@@ -66,6 +66,20 @@
   .rl-name .nm{font-family:'Jost',sans-serif;font-size:40px;font-weight:500;color:#fff;line-height:1.15;}
   .rl-name .ti{font-family:'Jost',sans-serif;font-size:30px;color:rgba(255,255,255,.6);}
   .rl-tag{font-size:11px;color:#6e6a7c;letter-spacing:.07em;padding:2px 7px;border:1px solid #3a3744;border-radius:5px;font-weight:400;white-space:nowrap;}
+  /* ---- Spec kit ---- */
+  .fk-block{flex:1 0 100%;background:#1b1924;border:1px solid #2a2832;border-radius:12px;padding:12px 18px;
+    display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:0 28px 28px;max-width:1100px;}
+  .fk-label{color:#6e6a7c;font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+  .fk-sep{width:1px;height:14px;background:#2a2832;flex-shrink:0;}
+  .fk-dl{color:#b9b4c4;text-decoration:none;font-size:11px;padding:3px 9px;background:#221f29;
+    border:1px solid #3a3744;border-radius:6px;transition:border-color .15s,color .15s;}
+  .fk-dl:hover{border-color:#7B5BFF;color:#c8c0ff;}
+  .spec-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+  .sc{cursor:pointer;font-size:11px;padding:2px 7px;background:#1b1924;border:1px solid #2a2832;
+    border-radius:5px;color:#6e6a7c;user-select:none;transition:border-color .12s,color .12s;
+    font-family:'Jost',sans-serif;white-space:nowrap;}
+  .sc:hover{border-color:#4a4658;color:#b9b4c4;}
+  .sc.ok{border-color:#08CEE9!important;color:#08CEE9!important;}
 </style>
 </head>
 <body>
@@ -89,6 +103,26 @@
   <div class="lead">Вертикальное видео 1080×1920 — главный инструмент охвата в 2026. Хук, структура, текст, звук и конверсия.</div>
   <p style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--blush);margin:24px 0 0;">примеры форматов</p>
 
+</div>
+
+<div class="fk-block">
+  <span class="fk-label">холст</span>
+  <span class="sc" onclick="cs(this,'1080 × 1920 px')">1080×1920 px</span>
+  <span class="fk-sep"></span>
+  <span class="fk-label">шрифты ↓</span>
+  <a class="fk-dl" href="https://fonts.google.com/specimen/Playfair+Display" target="_blank" rel="noopener">Playfair Display</a>
+  <a class="fk-dl" href="https://fonts.google.com/specimen/Jost" target="_blank" rel="noopener">Jost</a>
+  <span class="fk-sep"></span>
+  <span class="fk-label">градиент</span>
+  <span class="sc" onclick="cs(this,'#FF3CDF')"><span style="color:#FF3CDF">◆</span> #FF3CDF</span>
+  <span class="sc" onclick="cs(this,'#7B5BFF')"><span style="color:#7B5BFF">◆</span> #7B5BFF</span>
+  <span class="sc" onclick="cs(this,'#08CEE9')"><span style="color:#08CEE9">◆</span> #08CEE9</span>
+  <span class="sc" onclick="cs(this,'linear-gradient(90deg,#FF3CDF,#7B5BFF,#08CEE9)')">css gradient</span>
+  <span class="fk-sep"></span>
+  <span class="fk-label">CTA</span>
+  <span class="sc" onclick="cs(this,'#08CEE9')" style="color:#08CEE9;border-color:rgba(8,206,233,.35);">#08CEE9</span>
+  <span class="fk-label">фон</span>
+  <span class="sc" onclick="cs(this,'#1a191f')">#1a191f</span>
 </div>
 
 <div class="reel-gallery">
@@ -117,6 +151,11 @@
       </div>
     </div>
     <div class="reel-cap"><b>01</b> Хук-вопрос <span class="rl-tag">↑ текст наверху</span></div>
+    <div class="spec-row">
+      <span class="sc" onclick="cs(this,'Playfair Display Italic')">Playfair Italic</span>
+      <span class="sc" onclick="cs(this,'160px')">160px</span>
+      <span class="sc" onclick="cs(this,'linear-gradient(90deg,#FF3CDF,#7B5BFF,#08CEE9)')">gradient</span>
+    </div>
   </div>
 
   <!-- 02 · Туториал — шаг -->
@@ -146,6 +185,12 @@
       </div>
     </div>
     <div class="reel-cap"><b>02</b> Туториал · шаг <span class="rl-tag">↓ текст внизу</span></div>
+    <div class="spec-row">
+      <span class="sc" onclick="cs(this,'Jost 600')">Jost 600</span>
+      <span class="sc" onclick="cs(this,'76px')">76px</span>
+      <span class="sc" onclick="cs(this,'Playfair Display Italic')">Playfair Italic</span>
+      <span class="sc" onclick="cs(this,'96px')">96px</span>
+    </div>
   </div>
 
   <!-- 03 · Войсовер — говорит тренер -->
@@ -177,6 +222,12 @@
       </div>
     </div>
     <div class="reel-cap"><b>03</b> Войсовер <span class="rl-tag">↓ текст внизу</span></div>
+    <div class="spec-row">
+      <span class="sc" onclick="cs(this,'Playfair Display Italic')">Playfair Italic</span>
+      <span class="sc" onclick="cs(this,'88px')">88px</span>
+      <span class="sc" onclick="cs(this,'Jost 500')">Jost 500</span>
+      <span class="sc" onclick="cs(this,'44px')">44px имя</span>
+    </div>
   </div>
 
   <!-- 04 · Факт-сюрприз — аура без видео -->
@@ -204,6 +255,12 @@
       </div>
     </div>
     <div class="reel-cap"><b>04</b> Факт · без фото <span class="rl-tag">⊙ по центру</span></div>
+    <div class="spec-row">
+      <span class="sc" onclick="cs(this,'Jost 700')">Jost 700</span>
+      <span class="sc" onclick="cs(this,'320px')">320px цифра</span>
+      <span class="sc" onclick="cs(this,'Playfair Display Italic')">Playfair Italic</span>
+      <span class="sc" onclick="cs(this,'80px')">80px подпись</span>
+    </div>
   </div>
 
   <!-- 05 · Финальный кадр — CTA -->
@@ -235,6 +292,11 @@
       </div>
     </div>
     <div class="reel-cap"><b>05</b> Финал · CTA <span class="rl-tag">↓ текст внизу</span></div>
+    <div class="spec-row">
+      <span class="sc" onclick="cs(this,'Jost 300')">Jost 300</span>
+      <span class="sc" onclick="cs(this,'60px')">60px список</span>
+      <span class="sc" onclick="cs(this,'#08CEE9')" style="color:#08CEE9;border-color:rgba(8,206,233,.35);">#08CEE9 CTA</span>
+    </div>
   </div>
 
   <!-- 06 · Туториал — полный список (по центру, без фото) -->
@@ -270,6 +332,12 @@
       </div>
     </div>
     <div class="reel-cap"><b>06</b> Туториал · список <span class="rl-tag">⊙ по центру</span></div>
+    <div class="spec-row">
+      <span class="sc" onclick="cs(this,'Playfair Display Italic')">Playfair Italic</span>
+      <span class="sc" onclick="cs(this,'112px')">112px заголовок</span>
+      <span class="sc" onclick="cs(this,'Jost 300')">Jost 300</span>
+      <span class="sc" onclick="cs(this,'72px')">72px пункты</span>
+    </div>
   </div>
 
   <!-- 07 · До/После — разделённый экран -->
@@ -309,6 +377,11 @@
       </div>
     </div>
     <div class="reel-cap"><b>07</b> До/После <span class="rl-tag">↕ экран пополам</span></div>
+    <div class="spec-row">
+      <span class="sc" onclick="cs(this,'Jost 500')">Jost 500</span>
+      <span class="sc" onclick="cs(this,'64px')">64px разделитель</span>
+      <span class="sc" onclick="cs(this,'#ffffff')">ДО serpia / ПОСЛЕ цвет</span>
+    </div>
   </div>
 
   <!-- 08 · Анонс · Балтийская — тёплый акцент -->
@@ -338,6 +411,11 @@
       </div>
     </div>
     <div class="reel-cap"><b>08</b> Анонс · Балтийская <span class="rl-tag">тёплый</span></div>
+    <div class="spec-row">
+      <span class="sc" onclick="cs(this,'Jost 700')">Jost 700</span>
+      <span class="sc" onclick="cs(this,'72px')">72px событие</span>
+      <span class="sc" onclick="cs(this,'rgba(211,138,78,0.52)')">overlay тёплый</span>
+    </div>
   </div>
 
   <!-- 09 · Анонс · Мурино — нейтральный акцент -->
@@ -367,6 +445,11 @@
       </div>
     </div>
     <div class="reel-cap"><b>09</b> Анонс · Мурино <span class="rl-tag">серый</span></div>
+    <div class="spec-row">
+      <span class="sc" onclick="cs(this,'Jost 700')">Jost 700</span>
+      <span class="sc" onclick="cs(this,'72px')">72px событие</span>
+      <span class="sc" onclick="cs(this,'rgba(120,118,138,0.55)')">overlay серый</span>
+    </div>
   </div>
 
 </div>
@@ -468,5 +551,13 @@
   <div class="rule">Первые 3 секунды решают всё. Если хук не зацепил — структура, звук и CTA не работают.</div>
 
 </div>
+<script>
+  function cs(el, val) {
+    navigator.clipboard.writeText(val).then(()=>{
+      el.classList.add('ok');
+      setTimeout(()=>el.classList.remove('ok'), 1200);
+    });
+  }
+</script>
 </body>
 </html>

@@ -251,6 +251,44 @@
 </div>
 
 <script>
+  // copy spec chip value to clipboard
+  function cs(el, val) {
+    navigator.clipboard.writeText(val).then(()=>{
+      el.classList.add('ok');
+      setTimeout(()=>el.classList.remove('ok'), 1200);
+    });
+  }
+
+  // font/size spec per story template
+  const SPECS = {
+    'story-announce':  [['Playfair Display Italic','152px'],['Jost 500','72px'],['gradient','#FF3CDF → #7B5BFF → #08CEE9']],
+    'story-promo':     [['Playfair Display Italic','360px'],['Jost 300','72px'],['CTA','#08CEE9']],
+    'story-review':    [['Jost 300','76px'],['Playfair Display Italic','96px'],['subtext Jost','48px']],
+    'story-quote':     [['Playfair Display Italic','104px'],['Jost 300','52px'],['gradient','#FF3CDF → #7B5BFF → #08CEE9']],
+    'story-trainer':   [['Jost 500','240px'],['Jost 300','60px'],['label','#FF8FD8']],
+  };
+
+  // inject spec rows after each .frame--story wrapper
+  document.querySelectorAll('.frame.frame--story').forEach(frame => {
+    const name = frame.dataset.name;
+    const base = name ? name.replace(/-b$/,'') : null;
+    const rows = base && SPECS[base];
+    if (!rows) return;
+    const row = document.createElement('div');
+    row.className = 'spec-row';
+    rows.forEach(([label, val]) => {
+      const chip = document.createElement('span');
+      chip.className = 'sc';
+      chip.title = 'скопировать';
+      chip.textContent = label + ': ' + val;
+      chip.onclick = () => cs(chip, val);
+      row.appendChild(chip);
+    });
+    // insert after the frame's parent cell
+    const cell = frame.closest('.cell') || frame.parentElement;
+    cell.appendChild(row);
+  });
+
   // тема из ?theme=light и кнопка
   const THEMES=['', 'light', 'cappuccino'];
   const NAMES={'':'тёмная','light':'светлая','cappuccino':'капучино (Балтийская)'};
