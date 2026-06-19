@@ -18,6 +18,8 @@
   .thumb{zoom:var(--zoom,.3);}            /* превью; экспорт нейтрализует */
   .cap{color:#8f8c98;font-size:34px;margin-top:18px;font-family:'Jost',sans-serif;}
   .cell{display:flex;flex-direction:column;}
+  .scrim--top{top:0;bottom:auto;background:linear-gradient(rgba(var(--scrim-rgb),.92) 0%,rgba(var(--scrim-rgb),.5) 55%,transparent 100%);}
+  .gallery-sep{width:100%;padding:12px 30px 4px;color:#5a5768;font-size:28px;letter-spacing:.1em;text-transform:uppercase;font-family:'Jost',sans-serif;}
 </style>
 </head>
 <body>
@@ -32,6 +34,7 @@
   <a href="index.html" style="color:#cfccd6;text-decoration:none;border:1px solid #3a3744;border-radius:10px;padding:8px 16px;font-size:13px;">← Все</a>
   <span class="sp"></span>
   <a href="carousels.html" style="color:#cfccd6;text-decoration:none;border:1px solid #3a3744;border-radius:10px;padding:8px 16px;font-size:13px;">Карусель</a>
+  <a href="reels.html" style="color:#cfccd6;text-decoration:none;border:1px solid #3a3744;border-radius:10px;padding:8px 16px;font-size:13px;">Рилзы</a>
   <a href="profile.html" style="color:#cfccd6;text-decoration:none;border:1px solid #3a3744;border-radius:10px;padding:8px 16px;font-size:13px;">Профиль</a>
   <a href="filials.html" style="color:#cfccd6;text-decoration:none;border:1px solid #3a3744;border-radius:10px;padding:8px 16px;font-size:13px;">Филиалы</a>
   <button id="themeBtn">Тема: тёмная</button>
@@ -124,6 +127,89 @@
       <div class="sign" role="img" aria-label="FLOW"></div>
     </div>
   </div><div class="cap">Карточка тренера</div></div>
+
+  <!-- ══ ВАРИАНТЫ Б — другое положение текста ══ -->
+  <div class="gallery-sep">Варианты Б · текст в другой позиции</div>
+
+  <!-- 2Б · АНОНС · текст вверху -->
+  <div class="cell"><div class="thumb">
+    <div class="frame frame--story" data-name="story-announce-b">
+      <div class="photo" style="background-image:url('assets/stretch.jpg')"></div><div class="duo"></div><div class="scrim scrim--top"></div>
+      <div class="pad" style="justify-content:flex-start;">
+        <div class="over">новый поток</div>
+        <div class="hero gt" style="font-size:152px;">stretching</div>
+        <div class="subhead">3 шпагата</div>
+        <div class="body" style="max-width:88%;margin-top:40px;">мягкая, но глубокая растяжка. старт 20 ноября — успей в первый набор.</div>
+        <div class="pill pill--cta" style="align-self:flex-start;margin-top:60px;">записаться</div>
+        <div class="cta-hint">→ ссылка в шапке профиля</div>
+      </div>
+      <div class="sign" role="img" aria-label="FLOW"></div>
+    </div>
+  </div><div class="cap">Анонс Б · текст вверху</div></div>
+
+  <!-- 3Б · ПРОМО · лево-выровненный -->
+  <div class="cell"><div class="thumb">
+    <div class="frame frame--story" data-name="story-promo-b">
+      <div class="aura"></div>
+      <svg class="flow-line" viewBox="0 0 1080 1920" preserveAspectRatio="none"><path d="M-40 980 C480 660 380 1380 980 1080"/></svg>
+      <div class="pad" style="justify-content:flex-end;">
+        <div class="over" style="align-self:flex-start;">только до 30 ноября</div>
+        <div class="hero gt" style="font-size:300px;line-height:.9;margin:20px 0;align-self:flex-start;">−10%</div>
+        <div class="subhead" style="font-size:66px;align-self:flex-start;">на абонемент</div>
+        <div class="body" style="max-width:80%;margin-top:40px;">8 занятий · любое направление · на первую покупку</div>
+        <div class="pill pill--cta" style="align-self:flex-start;margin-top:60px;">забрать скидку</div>
+        <div class="cta-hint">→ пиши «ХОЧУ» в директ</div>
+      </div>
+      <div class="sign" role="img" aria-label="FLOW"></div>
+    </div>
+  </div><div class="cap">Промо Б · лево-выровненный</div></div>
+
+  <!-- 4Б · ОТЗЫВ · аватар вверху -->
+  <div class="cell"><div class="thumb">
+    <div class="frame frame--story" data-name="story-review-b">
+      <div class="photo" style="background-image:url('assets/fitness.jpg')"></div><div class="duo"></div><div class="scrim scrim--center"></div>
+      <div class="pad" style="justify-content:flex-start;padding-top:200px;">
+        <div class="section-label">отзыв</div>
+        <div style="display:flex;align-items:center;gap:26px;margin-top:40px;max-width:74%;">
+          <div class="avatar" style="width:120px;height:120px;background-image:url('assets/face.jpg')"></div>
+          <div>
+            <div style="display:flex;align-items:center;gap:20px;">
+              <div class="avatar-pill" style="border:none;padding:0;background:transparent;color:var(--on-photo);">Алина</div>
+              <div style="color:var(--blush);font-size:38px;letter-spacing:3px;">★★★★★</div>
+            </div>
+            <div class="body" style="font-size:36px;">ученица · 6 мес</div>
+          </div>
+        </div>
+        <div class="gt" style="font-family:var(--font-emotion);font-style:italic;font-size:180px;line-height:.4;margin-top:80px;">"</div>
+        <div class="quote" style="font-size:76px;margin-top:20px;max-width:95%;">пришла, не умея ничего. через 3 месяца — шпагат и стойка на руках. тут правда дают энергию.</div>
+      </div>
+      <div class="sign" role="img" aria-label="FLOW"></div>
+    </div>
+  </div><div class="cap">Отзыв Б · аватар вверху</div></div>
+
+  <!-- 5Б · ЦИТАТА · текст вверху -->
+  <div class="cell"><div class="thumb">
+    <div class="frame frame--story" data-name="story-quote-b">
+      <div class="photo" style="background-image:url('assets/dance.jpg')"></div><div class="duo duo--strong"></div><div class="scrim scrim--top"></div>
+      <div class="pad center" style="justify-content:flex-start;">
+        <div class="quote" style="font-size:104px;line-height:1.08;">тренировки,<br>которые дают<br><span class="gt">энергию</span></div>
+        <div class="pill pill--ghost" style="margin-top:80px;">@flow.training.lab</div>
+      </div>
+    </div>
+  </div><div class="cap">Цитата Б · текст вверху</div></div>
+
+  <!-- 6Б · ТРЕНЕР · имя вверху -->
+  <div class="cell"><div class="thumb">
+    <div class="frame frame--story" data-name="story-trainer-b">
+      <div class="photo" style="background-image:url('assets/trainer.jpg')"></div><div class="duo"></div><div class="scrim scrim--top"></div>
+      <div class="pad" style="justify-content:flex-start;padding-top:170px;">
+        <div class="pill" style="align-self:flex-start;margin-bottom:34px;">тренер</div>
+        <div class="hero" style="font-size:240px;color:var(--white);">Настя</div>
+        <div class="over" style="color:var(--blush);margin-top:10px;">акробатика · stretching</div>
+      </div>
+      <div class="sign" role="img" aria-label="FLOW"></div>
+    </div>
+  </div><div class="cap">Тренер Б · имя вверху</div></div>
 
 </div>
 

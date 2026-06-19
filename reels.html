@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Flow · Рилзы — правила и структура</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  body{margin:0;background:#1a191f;color:#EDEAF2;font-family:'Jost',sans-serif;font-weight:300;
+       line-height:1.6;}
+  .bar{position:sticky;top:0;z-index:50;display:flex;gap:6px;align-items:center;
+       padding:12px 24px;background:rgba(13,12,17,.92);backdrop-filter:blur(10px);
+       border-bottom:1px solid #26242e;flex-wrap:wrap;}
+  .bar img{height:22px;}
+  .bar .sp{flex:1;}
+  .bar a{color:#cfccd6;text-decoration:none;font-size:13px;padding:7px 13px;border-radius:9px;border:1px solid transparent;}
+  .bar a:hover{background:#211f29;border-color:#3a3744;color:#fff;}
+  .bar .sep{width:1px;height:18px;background:#3a3744;flex-shrink:0;margin:0 4px;}
+  .wrap{max-width:820px;margin:0 auto;padding:36px 28px 110px;}
+  h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:52px;
+     background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0 0 8px;}
+  .lead{color:#A8A3B5;font-size:17px;max-width:600px;margin:0 0 46px;}
+  h2{font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--blush);
+     margin:46px 0 16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);}
+  ul{margin:0;padding-left:0;list-style:none;}
+  li{position:relative;padding:6px 0 6px 28px;color:#CFCBD9;}
+  li::before{content:'';position:absolute;left:4px;top:14px;width:9px;height:9px;border-radius:3px;background:#08CEE9;}
+  li.x::before{background:#FF5A6E;}
+  li b{color:#fff;font-weight:500;}
+  .rule{background:rgba(8,206,233,.1);border:1px solid rgba(8,206,233,.32);border-radius:14px;
+        padding:16px 20px;color:#9EE9F4;font-size:16px;margin:18px 0 0;}
+  .hook-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:14px 0 0;}
+  .hook-card{background:#221f29;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:20px 18px;}
+  .hook-card .t{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blush);margin:0 0 8px;}
+  .hook-card .ex{font-size:15px;color:#EDEAF2;font-style:italic;line-height:1.45;}
+  .struct{display:flex;gap:0;border-radius:14px;overflow:hidden;margin:14px 0 0;}
+  .struct-block{flex:1;padding:18px 16px;font-size:14px;line-height:1.5;}
+  .struct-block .n{font-family:'Playfair Display',serif;font-style:italic;font-size:28px;
+                   background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:6px;}
+  .struct-block .tt{font-weight:600;color:#fff;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;display:block;}
+  .s1{background:rgba(255,60,223,.1);border:1px solid rgba(255,60,223,.18);}
+  .s2{background:rgba(123,91,255,.1);border:1px solid rgba(123,91,255,.18);border-left:none;border-right:none;}
+  .s3{background:rgba(8,206,233,.1);border:1px solid rgba(8,206,233,.2);}
+  code{background:#221f29;padding:2px 7px;border-radius:5px;color:#9B96A8;font-size:.92em;}
+  .cy{color:var(--blue-light);font-weight:500;}
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="index.html" style="padding:0;border-color:transparent;line-height:0;"><img src="assets/flow-logo-white.svg" alt="Flow"></a>
+  <span class="sp"></span>
+  <a href="stories.html">Сторис</a>
+  <a href="carousels.html">Карусель</a>
+  <a href="reels.html">Рилзы</a>
+  <a href="profile.html">Профиль</a>
+  <a href="filials.html">Филиалы</a>
+  <span class="sep"></span>
+  <a href="trends.html">Тренды</a>
+  <a href="conversion-guide.html">Правила</a>
+  <a href="type-guide.html">Типографика</a>
+</div>
+<div class="wrap">
+
+  <h1>Рилзы</h1>
+  <div class="lead">Вертикальное видео 1080×1920 — главный инструмент охвата в 2026. Хук, структура, текст, звук и конверсия.</div>
+
+  <h2>Формат</h2>
+  <ul>
+    <li><b>15–30 сек</b> → максимальный охват, алгоритм толкает активнее всего.</li>
+    <li><b>30–90 сек</b> → обучение и история, если удержание >70% — алгоритм тоже поднимает.</li>
+    <li>Обложка (cover) = первый кадр видео. Делать как сторис: текст, фото, бренд — и сохранять как отдельный PNG из системы.</li>
+    <li class="x">Горизонтальное видео, чёрные поля сверху/снизу — IG режет охват.</li>
+  </ul>
+
+  <h2>Первые 1–3 секунды — хук</h2>
+  <ul>
+    <li>Алгоритм смотрит удержание. Без хука — рилс не смотрят, охват не растёт.</li>
+    <li>Первое слово на экране = первое слово хука. Текст появляется сразу, не через секунду.</li>
+    <li class="x">Не начинать с логотипа, «привет» или заставки — это первые 3 сек на свалку.</li>
+  </ul>
+
+  <div class="hook-row">
+    <div class="hook-card">
+      <div class="t">Вопрос</div>
+      <div class="ex">«Ты ещё делаешь эти 3 ошибки в шпагате?»</div>
+    </div>
+    <div class="hook-card">
+      <div class="t">Факт-сюрприз</div>
+      <div class="ex">«Гибкость не врождённая — тренируется в любом возрасте»</div>
+    </div>
+    <div class="hook-card">
+      <div class="t">Стоп-кадр</div>
+      <div class="ex">Неожиданная поза или результат — картинка цепляет без слов</div>
+    </div>
+  </div>
+
+  <h2>Структура</h2>
+
+  <div class="struct">
+    <div class="struct-block s1">
+      <span class="n">01</span>
+      <span class="tt">Хук · 1–3 сек</span>
+      Вопрос, факт или стоп-кадр. Зацепить — главная задача.
+    </div>
+    <div class="struct-block s2">
+      <span class="n">02</span>
+      <span class="tt">Тело · 4–25 сек</span>
+      Ценность или история. Один рилс — одна мысль.
+    </div>
+    <div class="struct-block s3">
+      <span class="n">03</span>
+      <span class="tt">CTA · последние 3–5 сек</span>
+      Одно действие. Голубой <span class="cy">#08CEE9</span> если цель — запись.
+    </div>
+  </div>
+  <ul style="margin-top:16px;">
+    <li>Субтитры обязательны: <b>85% смотрят без звука</b>. Авто через IG или жжёная надпись снизу.</li>
+    <li class="x">Два инсайта = два рилса. Не пытаться уместить всё в один.</li>
+  </ul>
+
+  <h2>Текст поверх видео</h2>
+  <ul>
+    <li>Те же правила что в сторис: светлый текст по скриму, Jost для критичного.</li>
+    <li><b>≤15 слов на экране</b> единовременно — зритель читает и смотрит параллельно.</li>
+    <li>Safe-zone видео: верх <b>150px</b> (иконки IG), низ <b>350px</b> (кнопки лайк/коммент).</li>
+    <li>Субтитры: нижняя треть, Jost, белый по полупрозрачной плашке или скриму.</li>
+    <li class="x">Не ставить текст поверх движущегося объекта — он тонет.</li>
+  </ul>
+
+  <h2>Звук</h2>
+  <ul>
+    <li><b>Трендовый трек</b> → алгоритм буcтит рилзы с популярной музыкой; искать в IG Reels Audio → «популярные».</li>
+    <li><b>Войсовер своим голосом</b> → строит доверие быстрее монтажа; хорошо для «разбора ошибок», «советов».</li>
+    <li>Если обе дорожки: музыка тихо (<b>−12 дБ</b>) под голос.</li>
+    <li class="x">Тишина без субтитров — 85% аудитории не получает сообщение.</li>
+  </ul>
+
+  <h2>Конверсия в рилзах</h2>
+  <ul>
+    <li><b>Сохранения</b> — лучший сигнал алгоритму (полезный контент: лайфхак, «3 шага», разбор).</li>
+    <li><b>Пересылки</b> — второй сигнал (эмоция + узнавание: «это про меня», «отправлю подруге»).</li>
+    <li>CTA в описании: «Напиши <b>[слово]</b> в директ — пришлю программу». ДМ-воронка конвертит лучше ссылки.</li>
+    <li>Голубой <span class="cy">#08CEE9</span> текст-оверлей в финале только если цель — запись на пробное.</li>
+    <li>Хэштеги: <b>3–5 нишевых</b> (#растяжка, #стретчинг, #йогаспб) — не 30 общих.</li>
+    <li class="x">Не ставить ссылку как единственный CTA — сначала прогреть через сохранение или ДМ.</li>
+  </ul>
+
+  <h2>Чеклист перед публикацией</h2>
+  <ul>
+    <li>Хук срабатывает за 2 сек без звука.</li>
+    <li>Субтитры добавлены (авто IG или вручную).</li>
+    <li>Один CTA в финале, голубой только на пробном.</li>
+    <li>≤15 слов на экране, текст вне safe-zone.</li>
+    <li>Обложка сделана в стиле системы.</li>
+    <li>Трендовый трек или войсовер.</li>
+    <li>Один приватный триггер: сохранить / переслать / ответить.</li>
+  </ul>
+
+  <div class="rule">Первые 3 секунды решают всё. Если хук не зацепил — структура, звук и CTA не работают.</div>
+
+</div>
+</body>
+</html>
