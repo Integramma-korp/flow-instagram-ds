@@ -7,14 +7,6 @@
 <style>
   body{margin:0;background:#1a191f;color:#EDEAF2;font-family:'Jost',sans-serif;font-weight:300;
        line-height:1.6;}
-  .bar{position:sticky;top:0;z-index:50;display:flex;gap:6px;align-items:center;
-       padding:12px 24px;background:rgba(13,12,17,.92);backdrop-filter:blur(10px);
-       border-bottom:1px solid #26242e;flex-wrap:wrap;}
-  .bar img{height:22px;}
-  .bar .sp{flex:1;}
-  .bar a{color:#cfccd6;text-decoration:none;font-size:13px;padding:7px 13px;border-radius:9px;border:1px solid transparent;}
-  .bar a:hover{background:#211f29;border-color:#3a3744;color:#fff;}
-  .bar .sep{width:1px;height:18px;background:#3a3744;flex-shrink:0;margin:0 4px;}
   .wrap{max-width:880px;margin:0 auto;padding:36px 28px 120px;}
   h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:54px;
      background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0 0 6px;}
@@ -54,20 +46,33 @@
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   .cols h3{font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin:0;color:#EDEAF2;}
   @media(max-width:640px){.cols{grid-template-columns:1fr;}}
+  .bar{position:sticky;top:0;z-index:50;display:flex;gap:10px;align-items:center;
+       padding:12px 20px;background:#0d0c11;border-bottom:1px solid #2a2832;flex-wrap:wrap;}
+  .bar b{color:#fff;font-weight:600;font-size:14px;}
+  .bar .sp{flex:1;}
+  .bar a{color:#cfccd6;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:9px;border:1px solid transparent;}
+  .bar a:hover{background:#211f29;border-color:#3a3744;color:#fff;}
+  .bar a.on{background:#211f29;border-color:#3a3744;color:#fff;}
+  .bar .sep{width:1px;height:18px;background:#3a3744;flex-shrink:0;margin:0 2px;}
+  .bar button{font-family:'Jost',sans-serif;background:#211f29;color:#cfccd6;border:1px solid #3a3744;
+       border-radius:9px;padding:6px 12px;font-size:13px;cursor:pointer;}
+  .bar button:hover{color:#fff;border-color:#4a4658;}
 </style>
 </head>
 <body>
 <div class="bar">
-  <a href="index.html" style="padding:0;border-color:transparent;line-height:0;"><img src="assets/flow-logo-white.svg" alt="Flow"></a>
+  <a href="index.html" style="padding:0;border-color:transparent;line-height:0;"><img src="assets/flow-logo-white.svg" alt="Flow" style="height:22px;"></a>
   <span class="sp"></span>
   <a href="stories.html">Сторис</a>
   <a href="carousels.html">Карусель</a>
   <a href="reels.html">Рилзы</a>
+  <a href="posts.html">Посты</a>
+  <a href="highlights.html">Хайлайты</a>
   <a href="profile.html">Профиль</a>
   <a href="filials.html">Филиалы</a>
   <span class="sep"></span>
   <a href="plan.html">План</a>
-    <a href="trends.html">Тренды</a>
+  <a href="trends.html" class="on">Тренды</a>
   <a href="conversion-guide.html">Правила</a>
   <a href="type-guide.html">Типографика</a>
 </div>
