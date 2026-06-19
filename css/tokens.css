@@ -1,0 +1,117 @@
+/* Flow · Instagram Design System — TOKENS (single source of truth)
+   Меняешь цвет/шрифт здесь — меняется во всех шаблонах. */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Kodchasan:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500;1,600&display=swap');
+
+:root{
+  /* ── Палитра брендбука ── */
+  --gray-primary:#242427;
+  --pink:#FF3CDF;
+  --blue:#0014FF;
+  --blue-light:#08CEE9;   /* бирюзовый маркер */
+  --gray-light:#9B9CA9;
+  --gray-light-2:#C6C8D4;
+  --white:#FFFFFF;
+
+  /* ── Мосты v2 (нежно + тренд) ── */
+  --violet:#7B5BFF;
+  --blush:#FF8FD8;
+  --lilac:#C9A8E8;
+
+  /* ── Градиенты ── */
+  --grad-hero:linear-gradient(105deg,#FF3CDF,#7B5BFF 60%,#0014FF);  /* брендовый неон pink→violet→blue (заливки, CTA, декор) */
+  --grad-text:linear-gradient(105deg,#FF3CDF,#7B5BFF 58%,#4F7BFF);  /* для ГРАДИЕНТНОГО ТЕКСТА: синий конец поднят, чтобы читался на тёмном */
+  --grad-soft:linear-gradient(145deg,#FF8FD8,#B07BEE);
+  --duo:linear-gradient(150deg,rgba(255,90,205,.34),rgba(95,70,235,.30)); /* фирменный дуотон поверх фото */
+
+  /* ── Шрифты (две роли) ── */
+  --font-emotion:'Playfair Display',Georgia,serif; /* заголовки, цитаты — italic */
+  --font-function:'Jost',system-ui,sans-serif;     /* время, цена, CTA, тело */
+
+  /* ── Фото: пример-заглушка. На инстансе клади реальное фото:
+        <div class="photo" style="--photo: url('assets/nastya.jpg') center/cover"></div> ── */
+  --photo: url('../assets/example-photo.svg') center/cover;
+
+  /* ── Семантика темы: ТЁМНАЯ (по умолчанию) ── */
+  --bg:#201f25;
+  --text:#FFFFFF;
+  --text-muted:#B9B4C4;
+  --hairline:rgba(255,255,255,.13);
+  --aura-strength:.85;  /* v2: фоновое свечение чуть тише (тренд — неон ~70% на «долгих» поверхностях); акцент-неон в .gt держим полным */
+  --logo-src:url('../assets/flow-logo-white.svg'); /* белые буквы для тёмного фона */
+
+  /* ── Слой «поверх фото» — текст ВСЕГДА светлый (работает в любой теме) ──
+        Решает: --text тёмный в светлой/капучино теме тонет на фото. Над фото — эти. */
+  --on-photo:#FFFFFF;
+  --on-photo-muted:rgba(255,255,255,.88);
+  --on-photo-label:#E9D9F2;
+  --on-photo-accent:#FF8FD8;  /* яркий blush — эмоц. слова/цифры над фото (контраст+бренд, не белый) */
+  --grad-on-photo:var(--grad-text);     /* над фото — яркий конец (не тёмно-синий), читается на скриме */
+  --scrim-rgb:22,18,26;                 /* цвет затемнения под текстом (R,G,B) */
+  --logo-on-photo:url('../assets/flow-logo-white.svg'); /* над фото лого ВСЕГДА белое (любая тема) */
+
+  /* ── Семантика интерфейса Instagram (для мокапов профиля) — ТЁМНАЯ ── */
+  --ig-bg:#000;
+  --ig-text:#FFFFFF;
+  --ig-muted:#9B9CA9;
+  --ig-line:#262430;
+  --ig-btn-sec:#262430;
+  --ig-link:#6F8BFF;
+}
+
+/* ── Семантика темы: СВЕТЛАЯ ── */
+[data-theme="light"]{
+  --bg:#F4F2F6;
+  --text:#242427;
+  --text-muted:#6E6B76;
+  --hairline:rgba(0,0,0,.10);
+  --aura-strength:.5;
+  --logo-src:url('../assets/flow-logo.svg'); /* тёмные буквы для светлого фона */
+  --grad-text:var(--grad-hero); /* на светлом фоне тёмно-синий конец читается — берём полный бренд */
+
+  /* поверх фото — всё равно светлый текст + неон-градиент (на скриме) */
+  --on-photo:#FFFFFF;
+  --on-photo-muted:rgba(255,255,255,.88);
+  --on-photo-label:#EAD9F4;
+  --on-photo-accent:#FF8FD8;
+  --grad-on-photo:var(--grad-text);
+  --scrim-rgb:22,18,26;
+
+  /* ── Семантика интерфейса Instagram — СВЕТЛАЯ ── */
+  --ig-bg:#FFFFFF;
+  --ig-text:#16121A;
+  --ig-muted:#7A7783;
+  --ig-line:#EFEEF2;
+  --ig-btn-sec:#EFEEF2;
+  --ig-link:#3A52CC;
+}
+
+/* ── Тема: КАПУЧИНО (студия на Балтийской — СВЕТЛЫЕ стены, тёплые тона) ── */
+[data-theme="cappuccino"]{
+  --bg:#F3ECDD;            /* светлая пенка — стены студии */
+  --text:#4A3526;          /* эспрессо (для текста на светлом аура-фоне) */
+  --text-muted:#977C64;
+  --hairline:rgba(74,53,38,.14);
+  --aura-strength:.42;     /* мягче свечение — светлее общий тон */
+  --logo-src:url('../assets/flow-logo.svg'); /* тёмные буквы на светлом */
+  --lilac:#B58FC4;         /* лейблы → тёпло-сиреневый (бренд-violet в тёплой подаче) */
+  --blush:#D17FA0;         /* мягкий акцент → тёплая роза (бренд-pink) */
+  --pink:#C25C7A;          /* акцент/тайминги → карамельно-розовый (тёплый бренд-pink) */
+  --grad-hero:linear-gradient(105deg,#D38A4E,#D0568F 50%,#7B5BFF); /* карамель → бренд-pink → violet */
+  --grad-text:var(--grad-hero); /* на светлой пенке концовка-violet читается */
+
+  /* поверх фото — тёплый кремовый текст + СВЕТЛЫЙ БРЕНД-градиент, тёплый скрим */
+  --on-photo:#FFF6EC;
+  --on-photo-muted:rgba(255,246,236,.86);
+  --on-photo-label:#F4CFE2;  /* лёгкий блаш-лейбл */
+  --on-photo-accent:#FFC6A6;  /* тёплый персик — акцент над фото в капучино */
+  --grad-on-photo:linear-gradient(105deg,#FFB24D,#FF6FB0 48%,#9B7BFF); /* НАСЫЩЕННЫЙ тёпло-неон: золото-карамель → hot-pink → violet (читается на фото) */
+  --scrim-rgb:30,24,24;    /* почти нейтральный тёмный, лишь намёк на тепло — без бурого wash на фото */
+
+  /* IG-интерфейс для капучино — светлый тёплый */
+  --ig-bg:#FFFFFF;
+  --ig-text:#3A2C22;
+  --ig-muted:#8C7560;
+  --ig-line:#EFE7DA;
+  --ig-btn-sec:#EFE7DA;
+  --ig-link:#A85C46;
+}

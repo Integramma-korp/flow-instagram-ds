@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Flow · Карусель (бесшовная панорама)</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/kit.css">
+<style>
+  body{margin:0;background:#15141a;font-family:'Jost',sans-serif;}
+  .bar{position:sticky;top:0;z-index:50;display:flex;gap:14px;align-items:center;
+       padding:14px 20px;background:#0d0c11;border-bottom:1px solid #2a2832;color:#cfccd6;}
+  .bar b{color:#fff;font-weight:600;}.bar .sp{flex:1;}
+  .bar a,.bar button{color:#cfccd6;text-decoration:none;background:#211f29;border:1px solid #3a3744;
+       border-radius:10px;padding:8px 16px;font-size:13px;cursor:pointer;font-family:inherit;}
+  .note{color:#8f8c98;font-size:14px;padding:20px 30px 0;max-width:880px;}
+  .scroll{overflow-x:auto;padding:30px;}
+  .stage{zoom:var(--zoom,.32);width:max-content;}
+</style>
+</head>
+<body>
+<div class="bar">
+  <b>Flow · Карусель</b> <span style="opacity:.6">бесшовная · 4×(1080×1350)</span>
+  <span class="sp"></span>
+  <a href="index.html">☰ Меню</a>
+  <button id="themeBtn">Тема: тёмная</button>
+  <button onclick="document.documentElement.style.setProperty('--zoom',(prompt('Масштаб','0.32')||0.32))">Масштаб</button>
+</div>
+<div class="note">Гайд «3 ошибки в шпагате». Одно широкое фото (4320×1350) течёт через 4 слайда — при свайпе кадр продолжается. Пунктир = стык слайдов (только превью). Каждый слайд экспортируется отдельным постом 1080×1350.</div>
+
+<div class="scroll"><div class="stage"><div class="carousel-strip">
+
+  <!-- 0 · ОБЛОЖКА -->
+  <div class="cslide">
+    <div class="pano" style="left:0;background-image:url('assets/wide.jpg')"></div>
+    <div class="duo"></div><div class="scrim"></div>
+    <div class="pad" style="justify-content:flex-end;">
+      <div class="over">гайд</div>
+      <div class="hero gt" style="font-size:118px;">3 ошибки<br>в шпагате</div>
+      <div class="body mt-s" style="font-weight:400;">которые тормозят твой прогресс</div>
+      <div style="margin-top:40px;color:var(--blue-light);font-size:42px;font-weight:500;letter-spacing:.06em;">листай →</div>
+    </div>
+    <div class="sign" role="img" aria-label="FLOW"></div>
+  </div>
+  <div class="cslide-seam"></div>
+
+  <!-- 1 -->
+  <div class="cslide">
+    <div class="pano" style="left:-1080px;background-image:url('assets/wide.jpg')"></div>
+    <div class="duo"></div><div class="scrim scrim--center"></div>
+    <div class="pad">
+      <div class="cnum gt">01</div>
+      <div class="h2 mt-s" style="color:#fff;">резкая растяжка</div>
+      <div class="body mt-s" style="font-weight:400;color:rgba(255,255,255,.9);max-width:90%;">тянешься рывками без разогрева — мышца зажимается вместо удлинения. делай плавно, 30–40 сек на позицию, дыши в растяжение.</div>
+    </div>
+  </div>
+  <div class="cslide-seam"></div>
+
+  <!-- 2 -->
+  <div class="cslide">
+    <div class="pano" style="left:-2160px;background-image:url('assets/wide.jpg')"></div>
+    <div class="duo"></div><div class="scrim scrim--center"></div>
+    <div class="pad">
+      <div class="cnum gt">02</div>
+      <div class="h2 mt-s" style="color:#fff;">холодные мышцы</div>
+      <div class="body mt-s" style="font-weight:400;color:rgba(255,255,255,.9);max-width:90%;">шпагат на «холодную» = микротравмы и откат. 5–7 минут лёгкого кардио или суставной разминки перед — обязательны.</div>
+    </div>
+  </div>
+  <div class="cslide-seam"></div>
+
+  <!-- 3 · CTA -->
+  <div class="cslide">
+    <div class="pano" style="left:-3240px;background-image:url('assets/wide.jpg')"></div>
+    <div class="duo"></div><div class="scrim scrim--center"></div>
+    <div class="pad" style="justify-content:space-between;">
+      <div>
+        <div class="cnum gt">03</div>
+        <div class="h2 mt-s" style="color:#fff;">без дыхания</div>
+        <div class="body mt-s" style="font-weight:400;color:rgba(255,255,255,.9);max-width:90%;">задерживаешь дыхание — тело в стрессе и не отпускает. выдох в момент углубления растягивает мягко и безопасно.</div>
+      </div>
+      <div>
+        <div class="pill pill--cta">записаться на stretching</div>
+        <div class="cta-hint" style="color:rgba(255,255,255,.85);">→ ссылка в шапке профиля</div>
+      </div>
+    </div>
+  </div>
+
+</div></div></div>
+
+<script>
+  const T=['', 'light', 'cappuccino'], N={'':'тёмная','light':'светлая','cappuccino':'капучино'};
+  const b=document.getElementById('themeBtn'), cur=()=>document.body.getAttribute('data-theme')||'';
+  const s=()=>b.textContent='Тема: '+N[cur()];
+  b.onclick=()=>{const n=T[(T.indexOf(cur())+1)%T.length]; n?document.body.setAttribute('data-theme',n):document.body.removeAttribute('data-theme'); s();}; s();
+</script>
+</body>
+</html>

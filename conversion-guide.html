@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Flow · Читаемость и конверсия</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  body{margin:0;background:#1a191f;color:#EDEAF2;font-family:'Jost',sans-serif;font-weight:300;
+       line-height:1.6;padding:60px 28px 110px;}
+  .wrap{max-width:820px;margin:0 auto;}
+  .back{display:inline-block;margin-bottom:26px;color:#A8A3B5;text-decoration:none;font-size:14px;
+        border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:7px 15px;}
+  .back:hover{color:#fff;border-color:rgba(255,255,255,.3);}
+  h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:52px;
+     background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0 0 8px;}
+  .lead{color:#A8A3B5;font-size:17px;max-width:600px;margin:0 0 46px;}
+  h2{font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--blush);
+     margin:46px 0 16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);}
+  ul{margin:0;padding-left:0;list-style:none;}
+  li{position:relative;padding:6px 0 6px 28px;color:#CFCBD9;}
+  li::before{content:'';position:absolute;left:4px;top:14px;width:9px;height:9px;border-radius:3px;background:#08CEE9;}
+  li.x::before{background:#FF5A6E;}
+  li b{color:#fff;font-weight:500;}
+  .rule{background:rgba(8,206,233,.1);border:1px solid rgba(8,206,233,.32);border-radius:14px;
+        padding:16px 20px;color:#9EE9F4;font-size:16px;margin:18px 0 0;}
+  code{background:#221f29;padding:2px 7px;border-radius:5px;color:#9B96A8;font-size:.92em;}
+  .cy{color:var(--blue-light);font-weight:500;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="index.html">☰ Меню</a>
+  <h1>Читаемость и конверсия</h1>
+  <div class="lead">Короткий свод: как сделать, чтобы оффер прочёлся за секунду и вёл на запись. Читаемость — это первый рычаг конверсии.</div>
+
+  <h2>Читаемость</h2>
+  <ul>
+    <li>Над фото текст <b>всегда светлый</b> (<code>--on-photo</code>) + скрим, в любой теме.</li>
+    <li>Градиентное слово по фото — тень через <code>filter: drop-shadow()</code> (обычная не работает).</li>
+    <li>Критичное (время · цена · CTA) — <b>только Jost</b>, не сериф по фото.</li>
+    <li>Минимальный кегль <b>≥34px</b> (в 1080). Жирно и контрастно.</li>
+    <li class="x">Не ставить важное в safe-zone IG: верх 250 / низ 420px.</li>
+    <li class="x">Не пастель по фото — washed out.</li>
+  </ul>
+
+  <h2>Конверсия</h2>
+  <ul>
+    <li>Голубой <span class="cy">#08CEE9</span> — <b>только запись на пробное</b> (плитка · таплинк · хайлайт «с чего начать»). Больше нигде.</li>
+    <li><b>Один</b> доминантный CTA на макет, остальное тише.</li>
+    <li>Цена — крупнейший Jost после заголовка; ₽ меньше цифры.</li>
+    <li>Действие — в нижней трети (зона большого пальца).</li>
+    <li>Рычаги: <b>до/после</b>, живые отзывы, ургентность («осталось мест: N»).</li>
+    <li class="x">Не размывать голубой на декор/звёзды отзыва.</li>
+  </ul>
+
+  <h2>Чеклист перед отдачей</h2>
+  <ul>
+    <li>Каждый текст читается на своём фоне.</li>
+    <li>Цена/CTA — Jost по скриму, не сериф.</li>
+    <li>Один CTA, голубой только на пробном.</li>
+    <li>Мелкое ≥34px, критичное вне safe-zone.</li>
+    <li>Лого/айдентика на месте.</li>
+  </ul>
+
+  <div class="rule">Не видно оффер и кнопку за секунду — сила предложения уже не важна. Сначала читаемость, потом конверсия.</div>
+
+</div>
+</body>
+</html>

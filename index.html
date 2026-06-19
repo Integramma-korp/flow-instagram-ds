@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow · Instagram Design System</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#141318;color:#fff;font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  .top{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:16px 28px;
+       background:rgba(13,12,17,.85);backdrop-filter:blur(10px);border-bottom:1px solid #26242e;}
+  .top img{height:24px;}
+  .top .sp{flex:1;}
+  .top nav{display:flex;gap:6px;flex-wrap:wrap;}
+  .top nav a{color:#cfccd6;text-decoration:none;font-size:13px;padding:7px 13px;border-radius:9px;border:1px solid transparent;}
+  .top nav a:hover{background:#211f29;border-color:#3a3744;color:#fff;}
+  .hero{max-width:1080px;margin:0 auto;padding:64px 28px 24px;}
+  .hero .kod{font-family:'Kodchasan',sans-serif;font-size:15px;letter-spacing:.3em;text-transform:uppercase;color:var(--blush);}
+  .hero h1{font-size:46px;font-weight:500;margin:10px 0 8px;line-height:1.05;}
+  .hero h1 .gt{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:'Playfair Display',serif;font-style:italic;}
+  .hero p{color:#b9b4c4;font-size:16px;max-width:620px;line-height:1.6;margin:0;}
+  .grid{max-width:1080px;margin:0 auto;padding:28px 28px 90px;display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;}
+  .card{display:block;text-decoration:none;color:inherit;border:1px solid #2a2832;border-radius:18px;
+        overflow:hidden;background:#1b1a21;transition:border-color .15s,transform .15s;}
+  .card:hover{border-color:#4a4658;transform:translateY(-2px);}
+  .thumb{height:180px;position:relative;display:flex;align-items:flex-end;justify-content:flex-start;overflow:hidden;padding:16px 18px;}
+  .thumb .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .4s;}
+  .card:hover .thumb .bg{transform:scale(1.04);}
+  .thumb .duo{position:absolute;inset:0;background:linear-gradient(150deg,rgba(255,60,223,.38),rgba(123,91,255,.32));}
+  .thumb .scr{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,28,.82) 0%,rgba(20,16,28,.18) 60%,transparent 100%);}
+  .thumb .lbl{position:relative;z-index:2;font-family:'Playfair Display',serif;font-style:italic;font-size:28px;line-height:1;color:#fff;}
+  .card .meta{padding:16px 18px 18px;}
+  .card .meta h3{margin:0 0 5px;font-size:18px;font-weight:600;display:flex;align-items:center;gap:8px;}
+  .card .meta .num{font-size:12px;color:#7a7783;border:1px solid #3a3744;border-radius:6px;padding:1px 7px;}
+  .card .meta p{margin:0;font-size:13.5px;color:#9c98a6;line-height:1.5;}
+  .gradtxt{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .foot{max-width:1080px;margin:0 auto;padding:0 28px 70px;color:#6e6b76;font-size:12.5px;line-height:1.6;}
+  .foot code{background:#211f29;padding:2px 6px;border-radius:5px;color:#b9b4c4;}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <img src="assets/flow-logo-white.svg" alt="Flow">
+  <span style="font-size:13px;color:#7a7783;">Instagram Design System</span>
+  <span class="sp"></span>
+  <nav>
+    <a href="profile.html">Профиль</a>
+    <a href="stories.html">Сторис</a>
+    <a href="carousels.html">Карусель</a>
+    <a href="conversion.html">До / после</a>
+    <a href="filials.html">Филиалы</a>
+    <a href="trends.html">Тренды</a>
+    <a href="conversion-guide.html">Конверсия</a>
+    <a href="type-guide.html">Типографика</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img src="assets/flow-logo-white.svg" alt="FLOW" style="height:72px;display:block;margin:0 0 22px;">
+  <div class="kod">Flow · студия · СПб</div>
+  <h1>Визуальная система <span class="gt">Instagram</span></h1>
+  <p>Дизайн-система контента для @flow.training.lab на языке брендбука: тёмная база, неоновый градиент pink→violet→blue, Playfair + Jost, фото под дуотоном. Голубой <b style="color:var(--blue-light)">#08CEE9</b> — цвет действия (запись на пробное).</p>
+</section>
+
+<nav class="grid">
+
+  <a class="card" href="profile.html">
+    <div class="thumb">
+      <div class="bg" style="background-image:url('assets/dance.jpg');background-position:center 30%;"></div>
+      <div class="duo"></div><div class="scr"></div>
+      <span class="lbl">профиль</span>
+    </div>
+    <div class="meta"><h3>Профиль-витрина <span class="num">01</span></h3><p>Шапка, хайлайты и сетка ленты на телефоне — тёмная и светлая темы.</p></div>
+  </a>
+
+  <a class="card" href="stories.html">
+    <div class="thumb">
+      <div class="bg" style="background-image:url('assets/stretch.jpg');background-position:center 20%;"></div>
+      <div class="duo" style="background:linear-gradient(150deg,rgba(8,206,233,.32),rgba(123,91,255,.36));"></div><div class="scr"></div>
+      <span class="lbl">сторис</span>
+    </div>
+    <div class="meta"><h3>Сторис 1080×1920 <span class="num">02</span></h3><p>Шаблоны: анонс, промо, отзыв, цитата, карточка тренера. Тёмная + светлая + капучино.</p></div>
+  </a>
+
+  <a class="card" href="carousels.html">
+    <div class="thumb">
+      <div class="bg" style="background-image:url('assets/wide.jpg');background-position:center 40%;"></div>
+      <div class="duo" style="background:linear-gradient(150deg,rgba(0,20,255,.28),rgba(8,206,233,.3));"></div><div class="scr"></div>
+      <span class="lbl">карусель</span>
+    </div>
+    <div class="meta"><h3>Карусель 4×1080×1350 <span class="num">03</span></h3><p>Бесшовная панорама: одно фото течёт через 4 слайда. Гайд «ошибки в шпагате».</p></div>
+  </a>
+
+  <a class="card" href="conversion.html">
+    <div class="thumb">
+      <div class="bg" style="background-image:url('assets/fitness.jpg');background-position:center 25%;"></div>
+      <div class="duo" style="background:linear-gradient(150deg,rgba(8,206,233,.4),rgba(0,20,255,.35));"></div><div class="scr"></div>
+      <span class="lbl">до / после</span>
+    </div>
+    <div class="meta"><h3>Конверсионный слой <span class="num">04</span></h3><p>Рычаги записи на пробное: «до / после», голубой CTA-акцент.</p></div>
+  </a>
+
+  <a class="card" href="filials.html">
+    <div class="thumb">
+      <div class="bg" style="background-image:url('assets/trainer.jpg');background-position:center 15%;"></div>
+      <div class="duo" style="background:linear-gradient(150deg,rgba(211,138,78,.35),rgba(208,86,143,.32));"></div><div class="scr" style="background:linear-gradient(to top,rgba(46,31,22,.85) 0%,rgba(46,31,22,.2) 60%,transparent 100%);"></div>
+      <span class="lbl" style="color:#FFF6EC;">филиалы</span>
+    </div>
+    <div class="meta"><h3>Филиалы · оттенки <span class="num">05</span></h3><p>Балтийская и Озерки — капучино, Мурино — серый. Один бренд, лёгкий тон-подпись.</p></div>
+  </a>
+
+  <a class="card" href="trends.html">
+    <div class="thumb" style="background:radial-gradient(circle at 25% 25%,rgba(8,206,233,.4),transparent 55%),radial-gradient(circle at 80% 75%,rgba(255,60,223,.4),transparent 55%),#1b1a21;align-items:center;">
+      <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:30px;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;">тренды 2026</span>
+    </div>
+    <div class="meta"><h3>Визуальные тренды <span class="num">06</span></h3><p>Что заходит в Instagram женского фитнеса в 2026 и как мы это берём, не ломая бренд.</p></div>
+  </a>
+
+  <a class="card" href="conversion-guide.html">
+    <div class="thumb" style="background:radial-gradient(circle at 70% 60%,rgba(8,206,233,.5),transparent 55%),#1b1a21;align-items:center;">
+      <span style="display:inline-block;background:var(--blue-light);color:#06222a;font-family:'Jost';font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.08em;padding:11px 26px;border-radius:100px;">записаться</span>
+    </div>
+    <div class="meta"><h3>Читаемость и конверсия <span class="num">07</span></h3><p>Свод правил: текст читается за секунду, голубой = действие, чеклист перед отдачей.</p></div>
+  </a>
+
+  <a class="card" href="type-guide.html">
+    <div class="thumb" style="background:#1b1a21;border-bottom:1px solid #2a2832;align-items:center;padding:0 24px;">
+      <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:56px;color:#FF8FD8;line-height:1;">Aa</span>
+      <span style="font-family:'Jost';font-weight:700;font-size:44px;color:#fff;letter-spacing:.08em;margin-left:14px;line-height:1;">Aa</span>
+    </div>
+    <div class="meta"><h3>Типографика <span class="num">08</span></h3><p>Playfair Display (эмоция) + Jost (функция) — роли, размеры, правила.</p></div>
+  </a>
+
+</nav>
+
+<footer class="foot">
+  Источник правды по токенам — <code>css/tokens.css</code>, компоненты — <code>css/kit.css</code>. Спека решений — <code>../intdoc_corporate/docs/superpowers/specs/2026-06-18-flow-instagram-design-system-design.md</code>. Экспорт в PNG — <code>node render.mjs</code>.
+</footer>
+
+</body>
+</html>

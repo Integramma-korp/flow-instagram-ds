@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Flow · Правила системы</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/kit.css">
+<style>
+  body{margin:0;background:#15141a;font-family:'Jost',sans-serif;color:#cfccd6;}
+  .bar{position:sticky;top:0;z-index:50;display:flex;gap:14px;align-items:center;
+       padding:14px 20px;background:#0d0c11;border-bottom:1px solid #2a2832;color:#cfccd6;}
+  .bar b{color:#fff;font-weight:600;letter-spacing:.04em;}
+  .bar a{font-family:'Jost',sans-serif;background:#211f29;color:#fff;border:1px solid #3a3744;
+       border-radius:10px;padding:8px 16px;font-size:13px;text-decoration:none;}
+  .bar .sp{flex:1;}
+
+  .wrap{max-width:860px;margin:0 auto;padding:48px 28px 100px;}
+
+  /* ── section headers ── */
+  .label{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--lilac);margin:60px 0 6px;}
+  .label:first-child{margin-top:0;}
+  h2{font-family:'Playfair Display',serif;font-style:italic;font-size:32px;color:#fff;
+    margin:0 0 8px;line-height:1.15;}
+  .desc{color:#9b97a6;font-size:14.5px;line-height:1.65;max-width:700px;margin:0 0 28px;}
+
+  /* ── color swatches ── */
+  .swatches{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:16px;}
+  .sw{display:flex;flex-direction:column;align-items:center;gap:7px;}
+  .sw .blob{width:58px;height:58px;border-radius:14px;border:1px solid rgba(255,255,255,.07);}
+  .sw .nm{font-size:11px;color:#8f8c98;text-align:center;letter-spacing:.04em;}
+  .sw .hx{font-size:10px;color:#6e6b76;text-align:center;font-variant-numeric:tabular-nums;}
+  .grad-strip{height:48px;border-radius:14px;margin-bottom:28px;
+    background:var(--grad-hero);}
+
+  /* ── rule cards ── */
+  .cards{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+  .card{background:#1b1a21;border:1px solid #2a2832;border-radius:16px;padding:22px 24px;}
+  .card h3{margin:0 0 6px;font-size:16px;font-weight:600;color:#fff;display:flex;align-items:center;gap:10px;}
+  .card h3 .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 9px;border-radius:100px;}
+  .tag-ok{background:#1a2620;color:#62d6b0;border:1px solid rgba(98,214,176,.22);}
+  .tag-no{background:#241e2a;color:#f87171;border:1px solid rgba(248,113,113,.22);}
+  .card p{margin:0;font-size:13.5px;color:#9b97a6;line-height:1.6;}
+  .tok{font-family:'Jost',monospace;font-size:12px;background:#211f29;color:#c9a8e8;
+    border-radius:5px;padding:2px 7px;border:1px solid #3a3744;}
+
+  /* ── typography specimen ── */
+  .type-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px;}
+  .tc{background:#1b1a21;border:1px solid #2a2832;border-radius:16px;padding:22px 24px;}
+  .tc .role{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--lilac);margin-bottom:10px;}
+  .tc .sp{font-size:42px;line-height:1.1;margin:0 0 10px;}
+  .tc .sp.em{font-family:'Playfair Display',serif;font-style:italic;color:#fff;}
+  .tc .sp.fn{font-family:'Jost';font-weight:700;color:#fff;letter-spacing:-.01em;}
+  .tc p{font-size:12.5px;color:#7a7783;margin:0;line-height:1.55;}
+
+  /* ── themes ── */
+  .themes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px;}
+  .th{border-radius:16px;padding:20px 22px;}
+  .th .tname{font-weight:700;font-size:15px;margin:0 0 4px;}
+  .th .twhen{font-size:12px;opacity:.7;margin:0 0 14px;}
+  .th .tswatches{display:flex;gap:8px;}
+  .th .tswatches .s{width:22px;height:22px;border-radius:50%;}
+  .th.dark{background:#242427;border:1px solid #3a3744;}
+  .th.dark .tname{color:#fff;}
+  .th.dark .twhen{color:#b9b4c4;}
+  .th.light{background:#F4F2F6;border:1px solid #d8d5de;}
+  .th.light .tname{color:#242427;}
+  .th.light .twhen{color:#6e6b76;}
+  .th.capp{background:#F3ECDD;border:1px solid #d6c9b0;}
+  .th.capp .tname{color:#4A3526;}
+  .th.capp .twhen{color:#977C64;}
+
+  /* ── CTA pattern ── */
+  .cta-demo{display:flex;flex-wrap:wrap;gap:18px;align-items:center;padding:24px;
+    background:#1b1a21;border:1px solid #2a2832;border-radius:16px;margin-bottom:28px;}
+
+  /* ── do/dont ── */
+  .dos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:8px;}
+  .do{background:#1a2620;border:1px solid #2f5c4c;border-radius:14px;padding:18px 20px;}
+  .dont{background:#241e2a;border:1px solid #50384a;border-radius:14px;padding:18px 20px;}
+  .do .head,.dont .head{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;}
+  .do .head{color:#62d6b0;} .dont .head{color:#f87171;}
+  .do ul,.dont ul{margin:0;padding-left:16px;font-size:13px;line-height:1.7;color:#a8a4b3;}
+
+  /* ── divider ── */
+  hr{border:none;border-top:1px solid #2a2832;margin:50px 0 0;}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <b>Flow · Правила системы</b>
+  <span class="sp"></span>
+  <a href="index.html">☰ Меню</a>
+  <a href="profile.html">Профиль</a>
+  <a href="stories.html">Сторис</a>
+</div>
+
+<div class="wrap">
+
+  <!-- ══ 1. КАК УСТРОЕНА СИСТЕМА ══ -->
+  <div class="label">Архитектура</div>
+  <h2>Один источник правды</h2>
+  <p class="desc">Все цвета, шрифты и отступы живут в <span class="tok">css/tokens.css</span> как CSS-переменные. Компоненты — в <span class="tok">css/kit.css</span>. Меняешь токен — меняется везде. Тема переключается одним атрибутом: <span class="tok">data-theme="light"</span> на <span class="tok">&lt;body&gt;</span>.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Токены → компоненты → шаблоны</h3>
+      <p>Никаких «магических» цветов прямо в разметке. Каждый цвет — переменная с именем: <span class="tok">--pink</span>, <span class="tok">--on-photo</span>, <span class="tok">--grad-hero</span>. Если нужно изменить акцентный цвет для нового филиала — меняем один токен, не трогаем шаблоны.</p>
+    </div>
+    <div class="card">
+      <h3>Фото — только через <code style="font-size:13px;">background-image</code> инлайн <span class="tag tag-no">не через --photo</span></h3>
+      <p>Переменная <span class="tok">url()</span> внутри CSS-кастом-проперти резолвится от каталога CSS-файла, а не HTML. Из-за этого путь ломается: <span class="tok">css/assets/x.jpg</span>. Правило: фото всегда задавать атрибутом элемента: <span class="tok">style="background-image:url('assets/x.jpg')"</span>.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══ 2. ЦВЕТ ══ -->
+  <div class="label">Цвет</div>
+  <h2>Брендовая палитра</h2>
+  <p class="desc">Неоновая триада — pink → violet → blue — основа градиентов и акцентов. Blush и lilac — нежные мосты. Голубой <span style="color:var(--blue-light);font-weight:600;">#08CEE9</span> — цвет действия (CTA записи на пробное).</p>
+
+  <div class="swatches">
+    <div class="sw"><div class="blob" style="background:#FF3CDF;"></div><div class="nm">pink</div><div class="hx">#FF3CDF</div></div>
+    <div class="sw"><div class="blob" style="background:#7B5BFF;"></div><div class="nm">violet</div><div class="hx">#7B5BFF</div></div>
+    <div class="sw"><div class="blob" style="background:#0014FF;"></div><div class="nm">blue</div><div class="hx">#0014FF</div></div>
+    <div class="sw"><div class="blob" style="background:#08CEE9;"></div><div class="nm">blue-light</div><div class="hx">#08CEE9</div></div>
+    <div class="sw"><div class="blob" style="background:#FF8FD8;"></div><div class="nm">blush</div><div class="hx">#FF8FD8</div></div>
+    <div class="sw"><div class="blob" style="background:#C9A8E8;"></div><div class="nm">lilac</div><div class="hx">#C9A8E8</div></div>
+    <div class="sw"><div class="blob" style="background:#242427;"></div><div class="nm">gray</div><div class="hx">#242427</div></div>
+  </div>
+
+  <div class="grad-strip"></div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Два градиента — разные роли</h3>
+      <p><span class="tok">--grad-hero</span> — для фоновых заливок, кнопок CTA, декора. Тёмно-синий конец.<br>
+         <span class="tok">--grad-text</span> — для градиентного текста (класс <span class="tok">.gt</span>). Конец чуть светлее (#4F7BFF) — иначе тонет на тёмном.</p>
+    </div>
+    <div class="card">
+      <h3>Голубой #08CEE9 — только запись на пробное <span class="tag tag-ok">цвет действия</span></h3>
+      <p>Плитка «пробное 590 ₽», ссылка-таплинк, хайлайт «с чего начать», основной CTA. Больше нигде — ни звёзды отзыва, ни декор. Голубой должен моментально читаться как «жми сюда».</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══ 3. ТИПОГРАФИКА ══ -->
+  <div class="label">Типографика</div>
+  <h2>Две роли, два шрифта</h2>
+  <p class="desc">Playfair Display italic создаёт эмоцию. Jost берёт на себя всё, что нужно прочитать быстро: время, цену, CTA, подписи.</p>
+
+  <div class="type-pair">
+    <div class="tc">
+      <div class="role">Эмоция</div>
+      <p class="sp em">движение</p>
+      <p>Playfair Display · italic<br>Заголовки hero, цитаты, эмоциональные слова (.gt-акценты). Всегда <em>курсив</em>. Никогда — для цен и расписания.</p>
+    </div>
+    <div class="tc">
+      <div class="role">Функция</div>
+      <p class="sp fn">18:30</p>
+      <p>Jost · weight 400–800<br>Время, цена, CTA, тело текста, навигация, лейблы. Чистый, без засечек. Weight 700–800 для крупных чисел.</p>
+    </div>
+  </div>
+
+  <div class="dos">
+    <div class="do">
+      <div class="head">✓ Правильно</div>
+      <ul>
+        <li>«<em>растяжка</em>» Playfair italic как акцент</li>
+        <li>«590 ₽» Jost 800 крупно</li>
+        <li>«пн–вс 10:00–21:00» Jost 500</li>
+        <li>.gt-класс — градиент на одном слове</li>
+      </ul>
+    </div>
+    <div class="dont">
+      <div class="head">✗ Нельзя</div>
+      <ul>
+        <li>Playfair прямой (не italic) в инсте</li>
+        <li>Цена или время Playfair-ом</li>
+        <li>Два градиентных слова рядом подряд</li>
+        <li>Корпусной текст больше 40–48px в сторис</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══ 4. ФОТО-СЛОЙ ══ -->
+  <div class="label">Фото и контраст</div>
+  <h2>Текст над фото — всегда светлый</h2>
+  <p class="desc">В светлой и капучино темах <span class="tok">--text</span> становится тёмным — на фото он исчезает. Поэтому над фото используем отдельный набор токенов, которые светлые в любой теме.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Токены «поверх фото» <span class="tag tag-ok">всегда светлые</span></h3>
+      <p>
+        <span class="tok">--on-photo</span> #FFFFFF · основной текст<br>
+        <span class="tok">--on-photo-muted</span> rgba(255,255,255,.88) · вспомогательный<br>
+        <span class="tok">--on-photo-label</span> #E9D9F2 · лейблы / рубрики<br>
+        <span class="tok">--on-photo-accent</span> #FF8FD8 · эмоц. слова и цифры (blush, не белый)<br>
+        <span class="tok">--logo-on-photo</span> flow-logo-white.svg · лого ВСЕГДА белое над фото
+      </p>
+    </div>
+    <div class="card">
+      <h3>Контраст — цветом и скримом <span class="tag tag-no">тень — нельзя</span></h3>
+      <p>Скрим (<span class="tok">.scrim</span>) — тёмный градиент снизу под текстом. Если текст плохо читается — усиливаем скрим (<span class="tok">--scrim-rgb</span>). <strong>Никакого text-shadow, drop-shadow, filter</strong>. Тень делает текст «грязным» и противоречит clean-эстетике.</p>
+    </div>
+    <div class="card">
+      <h3>Правило добавления нового элемента над фото</h3>
+      <p>Новый элемент поверх фото → обязательно добавить его селектор в блок <span class="tok">.frame:has(.photo) {}</span> в kit.css с нужным <span class="tok">--on-photo-*</span> токеном. Для карусели — дублировать в блок <span class="tok">.cslide {}</span>.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══ 5. ТЕМЫ ══ -->
+  <div class="label">Темы</div>
+  <h2>Три контекста — один бренд</h2>
+  <p class="desc">Тема задаётся атрибутом <span class="tok">data-theme</span> на <span class="tok">&lt;body&gt;</span>. Все токены переопределяются автоматически.</p>
+
+  <div class="themes">
+    <div class="th dark">
+      <div class="tname">Тёмная</div>
+      <div class="twhen">По умолчанию · основной контент</div>
+      <div class="tswatches">
+        <div class="s" style="background:#201f25;border:1px solid #3a3744;"></div>
+        <div class="s" style="background:#FF3CDF;"></div>
+        <div class="s" style="background:#7B5BFF;"></div>
+        <div class="s" style="background:#08CEE9;"></div>
+      </div>
+    </div>
+    <div class="th light">
+      <div class="tname">Светлая</div>
+      <div class="twhen">Хайлайты · нежная подача</div>
+      <div class="tswatches">
+        <div class="s" style="background:#F4F2F6;border:1px solid #d8d5de;"></div>
+        <div class="s" style="background:#FF3CDF;"></div>
+        <div class="s" style="background:#7B5BFF;"></div>
+        <div class="s" style="background:#242427;"></div>
+      </div>
+    </div>
+    <div class="th capp">
+      <div class="tname">Капучино</div>
+      <div class="twhen">Балтийская · тёплый тон</div>
+      <div class="tswatches">
+        <div class="s" style="background:#F3ECDD;border:1px solid #d6c9b0;"></div>
+        <div class="s" style="background:#D38A4E;"></div>
+        <div class="s" style="background:#D0568F;"></div>
+        <div class="s" style="background:#4A3526;"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ══ 6. CTA И КОНВЕРСИЯ ══ -->
+  <div class="label">CTA и конверсия</div>
+  <h2>Иерархия призыва к действию</h2>
+  <p class="desc">Каждый пост должен вести к одному действию. Не «подпишись и сохрани» — а «запишись на пробное». Голубой — главный цвет действия.</p>
+
+  <div class="cta-demo">
+    <div class="pill pill--cta" style="font-size:28px;padding:18px 40px;background:var(--grad-hero);">записаться на пробное</div>
+    <div class="pill" style="font-size:28px;padding:18px 40px;color:var(--blue-light);border-color:var(--blue-light);">листай →</div>
+    <span style="font-size:28px;color:var(--blue-light);font-weight:600;letter-spacing:.06em;">→ ссылка в шапке</span>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Оффер-локап — канон для промо-сторис</h3>
+      <p>Порядок снизу вверх (в safe-zone нижней трети):<br>
+        <strong>1.</strong> Лейбл (Jost 500, lilac, uppercase) — «занятие по»<br>
+        <strong>2.</strong> Цена крупно (Jost 800, 160–200px) — <strong>главный элемент</strong><br>
+        <strong>3.</strong> Дедлайн + остаток мест (Jost 500, pink) — ургентность<br>
+        <strong>4.</strong> Кнопка-пилюля (grad-hero) — первичный CTA<br>
+        <strong>5.</strong> Стикер-дублёр «flow · запись» — виден на репосте в сторис</p>
+    </div>
+    <div class="card">
+      <h3>Safe-zone Instagram Stories</h3>
+      <p>Верхние ~250px и нижние ~250px — под UI Instagram (статус-бар, строка ввода, иконки). Критический текст, CTA и лого не заходят в эту зону. Декор — можно.</p>
+    </div>
+    <div class="card">
+      <h3>Карусель — бесшовная панорама</h3>
+      <p>Одно широкое фото (4320×1350) режется на 4 слайда 1080×1350. Каждый слайд смещает фон на <span class="tok">left: -(i × 1080px)</span>. При свайпе кадр «течёт» — эффект кинопанорамы. Первый слайд — обложка с CTA «листай →».</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

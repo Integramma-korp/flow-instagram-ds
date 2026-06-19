@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Flow · Типографика для рилзов и постов</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  body{margin:0;background:#1a191f;color:#EDEAF2;font-family:'Jost',sans-serif;font-weight:300;
+       line-height:1.6;padding:60px 28px 120px;}
+  .wrap{max-width:880px;margin:0 auto;}
+  h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:54px;
+     background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0 0 6px;}
+  .lead{color:#A8A3B5;font-size:18px;max-width:620px;margin:0 0 50px;}
+  h2{font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+     color:var(--blush);margin:54px 0 20px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .role{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0 0 10px;}
+  .card{background:#221f29;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px;}
+  .card .tag{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#8E89A0;}
+  .card .ex{margin:14px 0 8px;}
+  .note{color:#A8A3B5;font-size:15px;}
+  .rule{background:rgba(255,60,223,.08);border:1px solid rgba(255,60,223,.3);border-radius:14px;
+        padding:16px 20px;color:#FFC7EC;font-size:16px;margin:18px 0 0;}
+  table{width:100%;border-collapse:collapse;margin-top:8px;}
+  td{padding:16px 12px;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:middle;}
+  td.spec{width:240px;color:#A8A3B5;font-size:14px;}
+  td.spec b{color:#EDEAF2;font-weight:500;display:block;font-size:15px;}
+  .pf{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;}
+  .jt{font-family:'Jost',sans-serif;}
+  .grad{background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  ul{margin:10px 0 0;padding-left:0;list-style:none;}
+  li{position:relative;padding:6px 0 6px 28px;color:#CFCBD9;}
+  li::before{content:'';position:absolute;left:4px;top:15px;width:9px;height:9px;border-radius:3px;}
+  li.do::before{background:#08CEE9;} li.dont::before{background:#FF5A6E;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .cols h3{font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin:0;color:#EDEAF2;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Типографика</h1>
+  <div class="lead">Как набирать сторис, рилзы, посты и профиль Flow, чтобы читалось за секунду и работало на запись. Два шрифта, две роли — и ничего лишнего.</div>
+
+  <h2>Шрифты системы</h2>
+  <table>
+    <tr><td class="spec"><b>Playfair Display</b>роль: эмоция · italic 400–600</td>
+        <td><span class="pf grad" style="font-size:34px;">энергия твоего тела</span>
+        <div class="note" style="margin-top:6px;">Google Fonts. Заголовки, цитаты, одно крупное слово. Только эмоция — не критичная инфа.</div></td></tr>
+    <tr><td class="spec"><b>Jost</b>роль: функция · 300/400/500/600/700/800</td>
+        <td><span class="jt" style="font-size:26px;font-weight:600;">пробное 590 ₽ · записаться</span>
+        <div class="note" style="margin-top:6px;">Google Fonts (родной брендбука). Время, цена, дата, CTA, тело, лейблы. Вся важная инфа.</div></td></tr>
+    <tr><td class="spec"><b>Kodchasan</b>только логотип-локап</td>
+        <td><span class="jt" style="font-size:24px;font-family:'Kodchasan',sans-serif;font-weight:600;">FLOW</span>
+        <div class="note" style="margin-top:6px;">Используется исключительно в начертании лого (буквы FLW, «O» = завиток). В контенте не применяется.</div></td></tr>
+  </table>
+  <div class="rule">Максимум 2 шрифтовые роли на макете: Playfair (эмоция) + Jost (функция). Третий шрифт — только лого.</div>
+
+  <h2>Две роли</h2>
+  <div class="role">
+    <div class="card">
+      <div class="tag">Эмоция · Playfair Display <i>italic</i></div>
+      <div class="ex pf grad" style="font-size:46px;line-height:1;">stretching</div>
+      <div class="note">Заголовки, цитаты, одно крупное слово. Можно оверсайз и с градиентом. Создаёт настроение — не несёт критичную инфу.</div>
+    </div>
+    <div class="card">
+      <div class="tag">Функция · Jost</div>
+      <div class="ex jt" style="font-size:40px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;">19:00 · 1500 ₽</div>
+      <div class="note">Время, цена, дата, CTA, тело, лейблы. Жирный/medium, высокий контраст, по скриму. Всё, что должно прочитаться мгновенно.</div>
+    </div>
+  </div>
+  <div class="rule">Правило конверсии: время · цену · CTA НИКОГДА не набирать серифом поверх фото — только Jost по тёмному скриму. Сериф = эмоция, Jost = действие.</div>
+
+  <h2>Шкала (кегль в масштабе 1080px)</h2>
+  <table>
+    <tr><td class="spec"><b>Hero</b>Playfair italic · 140–200<br>story / 110–150 post</td>
+        <td><span class="pf grad" style="font-size:42px;">3 шпагата</span></td></tr>
+    <tr><td class="spec"><b>Subhead</b>Jost 500 · caps · 60–74<br>tracking .12em</td>
+        <td><span class="jt" style="font-size:24px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;">новый поток</span></td></tr>
+    <tr><td class="spec"><b>Название / H2</b>Jost 500 · caps · 52–64</td>
+        <td><span class="jt" style="font-size:22px;font-weight:500;text-transform:uppercase;">акробатика base</span></td></tr>
+    <tr><td class="spec"><b>Лейбл / over</b>Jost 300 · caps · 40–46<br>tracking .26em</td>
+        <td><span class="jt" style="font-size:13px;font-weight:300;text-transform:uppercase;letter-spacing:.26em;color:var(--lilac)">сегодня · вторник</span></td></tr>
+    <tr><td class="spec"><b>Тело</b>Jost 300/400 · 44–52<br>line-height 1.45 · лево</td>
+        <td><span class="jt" style="font-size:16px;font-weight:300;color:#CFCBD9">мягкая, но глубокая растяжка для всех шпагатов</span></td></tr>
+    <tr><td class="spec"><b>Время / цена</b>Jost 500 · 52–58 · pink</td>
+        <td><span class="jt" style="font-size:20px;font-weight:500;color:var(--pink)">11:00 — 12:00</span></td></tr>
+    <tr><td class="spec"><b>CTA</b>Jost 600 · caps · 40–46<br>сплошная кнопка</td>
+        <td><span class="jt" style="display:inline-block;background:var(--pink);color:#fff;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:9px 20px;border-radius:100px;">записаться</span></td></tr>
+    <tr><td class="spec"><b>Мелкое / caption</b>Jost 300 · ≥34<br>(минимум для телефона)</td>
+        <td><span class="jt" style="font-size:13px;color:#9B96A8">ссылка в шапке профиля</span></td></tr>
+  </table>
+
+  <h2>Рилзы (1080×1920)</h2>
+  <ul>
+    <li class="do">Текст — в safe-zone: отступ сверху ≥250px (аватар/крестик), снизу ≥420px (подпись, кнопки, поле ответа).</li>
+    <li class="do">Крупно и жирно: рилз смотрят в движении и со звуком — заголовок Playfair большой, ключевые слова Jost bold.</li>
+    <li class="do">Вшитые субтитры — Jost Medium 44–52, белые по полупрозрачной плашке/скриму, не тоньше Medium.</li>
+    <li class="do">Одна мысль на экран. Смена кадра = смена одной строки, а не абзаца.</li>
+    <li class="dont">Тонкий Light и сериф на мелком тексте по «живому» фону — не читается на ходу.</li>
+  </ul>
+
+  <h2>Посты и карусели (1080×1080 / 1080×1350)</h2>
+  <ul>
+    <li class="do">Обложка карусели: крючок Playfair + подсказка «листай →» в углу.</li>
+    <li class="do">Внутренний слайд: крупный номер (Playfair, градиент) + заголовок Jost caps + тело Jost.</li>
+    <li class="do">Один акцентный цвет на слайд, остальное — белый/серый + воздух.</li>
+    <li class="do">Длинный текст — лево-выключка (читается быстрее центра).</li>
+    <li class="dont">Больше двух шрифтовых ролей на макете и более 1 градиентного заголовка на кадр.</li>
+  </ul>
+
+  <h2>Конверсионный слой: оффер · цена · CTA</h2>
+  <div class="lead" style="margin:0 0 18px;">Цена и кнопка — это <b>действие</b>, а не украшение. Набираем по правилам ниже, иначе пробное «не считывается».</div>
+  <table>
+    <tr><td class="spec"><b>Оффер-лейбл</b>Jost 500 · caps · 40–46<br>tracking .18em · lilac</td>
+        <td><span class="jt" style="font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--lilac)">первое пробное</span></td></tr>
+    <tr><td class="spec"><b>Цена оффера</b>Jost 800 · 160–200<br>цвет по теме (бел/тёмн), ₽ — Jost 500</td>
+        <td><span class="jt" style="font-size:54px;font-weight:800;letter-spacing:-.01em;">590<span style="font-weight:500;font-size:28px;color:#9B96A8">&nbsp;₽</span></span></td></tr>
+    <tr><td class="spec"><b>Дедлайн / ургентность</b>Jost 500 · 44–48 · pink</td>
+        <td><span class="jt" style="font-size:18px;font-weight:500;color:var(--pink)">только в июне · мест: 6</span></td></tr>
+    <tr><td class="spec"><b>CTA primary</b>Jost 700 · caps · 40–46<br>заливка градиентом · 1 на макет</td>
+        <td><span class="jt" style="display:inline-block;background:var(--grad-hero);color:#fff;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:10px 24px;border-radius:100px;">записаться на пробное</span></td></tr>
+    <tr><td class="spec"><b>CTA secondary</b>Jost 500 · caps · контур pink<br>макс. 1, тише primary</td>
+        <td><span class="jt" style="display:inline-block;border:2px solid var(--pink);color:var(--pink);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;padding:9px 22px;border-radius:100px;">расписание</span></td></tr>
+    <tr><td class="spec"><b>Бейдж цена/скидка</b>Jost 700 · 38–42 · контур pink</td>
+        <td><span class="jt" style="display:inline-block;border:2px solid var(--pink);color:#EDEAF2;background:rgba(255,60,223,.12);font-size:14px;font-weight:700;letter-spacing:.04em;padding:8px 20px;border-radius:100px;">−40 %</span></td></tr>
+    <tr><td class="spec"><b>Подпись хайлайта</b>родная подпись IG · Jost 500 · ≤10 симв.</td>
+        <td><span class="jt" style="font-size:15px;font-weight:500;color:#CFCBD9;">старт</span>
+        <div class="note" style="margin-top:4px;">Внутри кружка — только иконка, без текста. На обложках story-разделов сериф-лейбл уместен.</div></td></tr>
+  </table>
+  <div class="rule">Один доминантный CTA на макет. Цена — крупнейший Jost-элемент после hero, никогда серифом по фото. Действие — в нижней трети (зона большого пальца).</div>
+
+  <h2>Читаемость: текст по фото и градиенты <span style="color:#FF5A6E">(выстрадано)</span></h2>
+  <ul>
+    <li class="do">Над фото текст — <b>всегда светлый</b> (`--on-photo`), независимо от темы. Тёмный текст темы на фото тонет.</li>
+    <li class="do">Текст по фото — на <b>скриме</b> + тень. Для <b>градиентного</b> слова обычная `text-shadow` НЕ работает (текст обрезан по маске) — нужен `filter: drop-shadow()`.</li>
+    <li class="do">Градиентный <b>текст</b> не заканчивается тёмным на тёмном: для текста — `--grad-text` (яркий «синий» конец `#4F7BFF`), для фото — `--grad-on-photo` (насыщенный, не пастель). Истинный `#0014FF` — только в заливках/CTA (`--grad-hero`).</li>
+    <li class="do">Лого-watermark над фото — белое (`--logo-on-photo`) + тень.</li>
+    <li class="dont">Пастельный градиент по фото — washed out. Только насыщенный.</li>
+    <li class="dont">Текст по самому светлому участку фото без скрима.</li>
+  </ul>
+
+  <h2>Чеклист перед отдачей</h2>
+  <div class="cols">
+    <div><h3 style="color:#08CEE9">Читаемость</h3>
+      <ul>
+        <li class="do">Каждый текст читается на своём фоне (особенно над фото и на светлых участках).</li>
+        <li class="do">Цена / время / CTA — Jost, не сериф по фото.</li>
+        <li class="do">Лого / watermark виден.</li>
+        <li class="do">Градиентный текст не уходит в тёмное на тёмном.</li>
+        <li class="do">Мелкое ≥34px (1080).</li>
+      </ul></div>
+    <div><h3 style="color:#08CEE9">Смысл и бренд</h3>
+      <ul>
+        <li class="do">Один доминантный CTA на макет.</li>
+        <li class="do">Критичное вне safe-zone (верх 250 / низ 420).</li>
+        <li class="do">Айдентика на месте: бренд-градиент / аура / дуотон / лого — даже в капучино.</li>
+        <li class="do">Тренд-2026: жирно, контрастно, без бледного пастеля.</li>
+        <li class="do">Макс. 2 шрифт-роли + лого.</li>
+      </ul></div>
+  </div>
+
+  <h2>Коротко: Do / Don't</h2>
+  <div class="cols">
+    <div><h3 style="color:#08CEE9">Do</h3>
+      <ul>
+        <li class="do">Сериф — только эмоция (заголовок/цитата).</li>
+        <li class="do">Jost — вся важная инфа, по скриму.</li>
+        <li class="do">Кегль мелкого ≥34px (1080).</li>
+        <li class="do">Один акцент на кадр.</li>
+        <li class="do">CAPS только на коротких лейблах/названиях.</li>
+      </ul></div>
+    <div><h3 style="color:#FF5A6E">Don't</h3>
+      <ul>
+        <li class="dont">Абзацы серифом.</li>
+        <li class="dont">Тонкий Light на мелком.</li>
+        <li class="dont">Текст по фото без скрима.</li>
+        <li class="dont">3+ шрифтовые роли.</li>
+        <li class="dont">Важное в safe-zone Instagram.</li>
+      </ul></div>
+  </div>
+
+</div>
+</body>
+</html>

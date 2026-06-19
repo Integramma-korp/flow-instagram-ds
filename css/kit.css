@@ -1,0 +1,248 @@
+/* Flow · Instagram Design System — KIT (компоненты)
+   Все размеры в реальном масштабе экспорта (story = 1080×1920).
+   Превью масштабируется в галерее; экспорт идёт в натуральную величину. */
+
+*{box-sizing:border-box;}
+
+/* ── Рамки форматов ── */
+.frame{position:relative;overflow:hidden;background:var(--bg);color:var(--text);
+  font-family:var(--font-function);font-weight:400;}
+.frame--story   {width:1080px;height:1920px;}
+.frame--portrait{width:1080px;height:1350px;}
+.frame--square  {width:1080px;height:1080px;}
+
+.pad{position:relative;z-index:3;display:flex;flex-direction:column;height:100%;
+  padding:104px 92px;}
+
+/* ── Фон-аура (когда без фото) ── */
+.aura{position:absolute;inset:0;z-index:0;opacity:var(--aura-strength);
+  background:radial-gradient(85% 55% at 22% 4%,rgba(255,143,216,.13),transparent 62%);}
+/* капучино: тёплый фон, но свечение и дуотон — брендовые pink→violet (айдентика) */
+[data-theme="cappuccino"] .aura{background:radial-gradient(85% 55% at 22% 4%,rgba(255,143,216,.22),rgba(123,91,255,.12) 46%,transparent 66%);}
+[data-theme="cappuccino"] .duo{background:linear-gradient(150deg,rgba(255,90,205,.15),rgba(123,91,255,.13));}
+
+/* ── Flow-линия (тонкий завиток) ── */
+.flow-line{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;}
+.flow-line path{fill:none;stroke:url(#flowgrad);stroke-width:2.5;opacity:.28;}
+
+/* ── Фото-оверлей ── */
+.photo{position:absolute;inset:0;z-index:0;background:var(--photo);background-size:cover;background-position:center;}
+.duo{position:absolute;inset:0;z-index:1;background:var(--duo);mix-blend-mode:soft-light;opacity:.40;}
+.duo--light {opacity:.22;}
+.duo--strong{opacity:.62;mix-blend-mode:normal;}
+.scrim{position:absolute;left:0;right:0;bottom:0;z-index:2;height:66%;
+  background:linear-gradient(transparent,rgba(var(--scrim-rgb),.58) 40%,rgba(var(--scrim-rgb),.95));}
+.scrim--center{top:0;height:100%;background:linear-gradient(rgba(var(--scrim-rgb),.48),rgba(var(--scrim-rgb),.90));}
+.scrim--soft{height:54%;}
+/* плашка-метка "фото" для плейсхолдера */
+.photo-tag{position:absolute;top:44px;left:44px;z-index:4;background:rgba(255,255,255,.09);
+  color:rgba(255,255,255,.7);font-size:22px;letter-spacing:.14em;text-transform:uppercase;
+  padding:8px 20px;border-radius:100px;}
+
+/* ── Типографика: слой ЭМОЦИИ (Playfair italic) ── */
+.hero{font-family:var(--font-emotion);font-style:italic;font-weight:500;line-height:.92;
+  font-size:230px;letter-spacing:-.01em;}
+.quote{font-family:var(--font-emotion);font-style:italic;font-weight:500;line-height:1.04;
+  font-size:120px;color:var(--text);}
+.gt{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;}
+
+/* ── Типографика: слой ФУНКЦИИ (Jost) ── */
+.over{font-weight:400;letter-spacing:.26em;text-transform:uppercase;color:var(--lilac);font-size:44px;}
+.subhead{font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text);font-size:74px;line-height:1.05;}
+.h2{font-weight:500;text-transform:uppercase;color:var(--text);font-size:62px;line-height:1.05;}
+.section-label{font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--lilac);font-size:46px;}
+.body{font-weight:300;color:var(--text-muted);font-size:50px;line-height:1.45;}
+.time,.price{color:var(--pink);font-weight:300;font-size:58px;}
+
+/* ── Текст ПОВЕРХ ФОТО — всегда светлый/читаемый (в любой теме) ──
+      Решает «тонет на фото»: над фото игнорируем тёмный --text темы, берём --on-photo. */
+.frame:has(.photo) .hero,
+.frame:has(.photo) .quote,
+.frame:has(.photo) .subhead,
+.frame:has(.photo) .h2{color:var(--on-photo);}
+.frame:has(.photo) .body,
+.frame:has(.photo) .cta-hint{color:var(--on-photo-muted);}
+.frame:has(.photo) .over,
+.frame:has(.photo) .section-label{color:var(--on-photo-label);}
+/* НАД ФОТО эмоциональное слово/цифра — СПЛОШНОЙ яркий брендовый цвет (blush), НЕ градиент.
+   Светлый неон-розовый = и контраст на тёмном скриме, и брендовый «вау» (не плоский белый).
+   Градиент оставляем для аура-фонов/CTA/профиля, где он надёжен. */
+.frame:has(.photo) .gt,.cslide .gt{
+  background:none;background-image:none;
+  -webkit-text-fill-color:var(--on-photo-accent);color:var(--on-photo-accent);}
+.frame:has(.photo) .pill--ghost{border-color:rgba(255,255,255,.9);color:var(--on-photo);
+  background:rgba(0,0,0,.42);}
+.frame:has(.photo) .body{font-weight:400;}   /* тонкий Light тонет на фото — поднимаем до Regular */
+/* лого-watermark над фото — всегда белый вариант (контраст цветом, БЕЗ тени) */
+.frame:has(.photo) .sign,.cslide .sign{background-image:var(--logo-on-photo);opacity:1;}
+.frame:has(.photo) .logo,.cslide .logo{background-image:var(--logo-on-photo);}
+/* контраст над фото решаем СВЕТЛЫМ текстом по скриму, БЕЗ теней (тень на тексте = крутость, читается хуже чистого цвета) */
+.frame:has(.photo) .pad{text-shadow:none;}
+
+/* ── Маркер ▸ ── */
+.marker{color:var(--blue-light);font-size:54px;line-height:1;}
+
+/* ── Pill / CTA ── */
+.pill{display:inline-flex;align-items:center;gap:20px;border:5px solid rgba(255,60,223,.6);
+  color:var(--pink);border-radius:100px;padding:24px 54px;font-weight:500;font-size:42px;
+  letter-spacing:.10em;text-transform:uppercase;}
+.pill--cta{background:var(--pink);border:none;color:#fff;font-weight:600;}
+.pill--ghost{border-color:rgba(255,255,255,.55);color:var(--text);}
+.cta-hint{font-weight:400;font-size:34px;color:var(--text-muted);letter-spacing:.03em;margin-top:18px;}
+
+/* ── Подпись-лого (узнаваемость + мягкий вотермарк) ── */
+/* Подпись-лого: реальный SVG из брендбука (буквы по теме, «O» = градиентный завиток) */
+.sign{position:absolute;right:64px;bottom:58px;z-index:4;width:230px;height:59px;
+  background:var(--logo-src) right center/contain no-repeat;opacity:.92;}
+/* Знак-завиток отдельно — иконка/аватар профиля */
+.logo-mark{display:inline-block;width:1em;height:1em;
+  background:url('../assets/flow-mark.svg') center/contain no-repeat;}
+
+/* ── Safe-zone сторис (направляющая; вкл. кнопкой в шапке) ── */
+body.show-safe .frame--story::before{content:'';position:absolute;left:0;right:0;top:0;height:250px;
+  z-index:9;background:rgba(255,70,90,.12);border-bottom:3px dashed rgba(255,70,90,.55);pointer-events:none;}
+body.show-safe .frame--story::after{content:'';position:absolute;left:0;right:0;bottom:0;height:420px;
+  z-index:9;background:rgba(255,70,90,.12);border-top:3px dashed rgba(255,70,90,.55);pointer-events:none;}
+
+/* ── Аватар тренера + pill с именем ── */
+.avatar{width:150px;height:150px;border-radius:50%;background:var(--photo);
+  background-size:cover;background-position:center;border:5px solid var(--pink);flex:none;}
+.avatar-pill{display:inline-flex;align-items:center;justify-content:center;border:4px solid var(--pink);
+  color:var(--pink);border-radius:14px;padding:8px 22px;font-weight:700;font-size:32px;
+  letter-spacing:.12em;text-transform:uppercase;background:var(--bg);}
+
+/* ── Расписание: строка ── */
+.row{display:flex;align-items:baseline;justify-content:space-between;
+  padding-bottom:34px;border-bottom:2px solid var(--hairline);}
+.row + .row{margin-top:40px;}
+
+/* ── Хайрлайн-разделитель общий ── */
+.hairline{border-bottom:2px solid var(--hairline);}
+
+/* ── Подвал-лого ── */
+.logo{margin-top:auto;width:300px;height:77px;
+  background:var(--logo-src) left center/contain no-repeat;opacity:.95;}
+
+/* ── Хайлайт (гибрид: аура-кружок + курсивный сериф-лейбл) ── */
+.hl{display:inline-flex;flex-direction:column;align-items:center;gap:18px;}
+.hl-circle{width:300px;height:300px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:120px;color:#FFD3EE;border:4px solid rgba(255,143,216,.4);
+  background:radial-gradient(circle at 50% 35%,rgba(255,143,216,.5),rgba(123,91,255,.18) 70%),#221f28;}
+.hl-label{font-family:var(--font-emotion);font-style:italic;font-size:64px;color:var(--text-muted);}
+
+/* ═══════════════════════════════════════════════════════════
+   КОНВЕРСИОННЫЙ СЛОЙ (ТЗ 2026-06-19) — применено в систему
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── CTA primary: заливка фирменным градиентом (1 на макет) ── */
+.pill--primary{background:var(--grad-hero);border:none;color:#fff;font-weight:700;
+  box-shadow:0 18px 50px -16px rgba(255,60,223,.55);}
+
+/* ── Бейдж цены / скидки ── */
+.badge{display:inline-flex;align-items:center;gap:14px;font-family:var(--font-function);
+  font-weight:700;font-size:40px;letter-spacing:.04em;color:var(--text);
+  background:rgba(255,60,223,.14);border:4px solid var(--pink);border-radius:100px;padding:16px 40px;}
+
+/* ── Оффер-локап (канон: лейбл → цена → дедлайн → CTA) ── */
+.offer{display:flex;flex-direction:column;gap:22px;align-items:flex-start;font-family:var(--font-function);}
+.offer-label{font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--lilac);font-size:42px;}
+.offer-price{font-weight:800;color:var(--text);font-size:200px;line-height:.9;letter-spacing:-.01em;}
+.offer-price small{font-weight:500;font-size:84px;color:var(--text-muted);}
+.offer-deadline{font-weight:500;color:var(--pink);font-size:46px;letter-spacing:.02em;}
+
+/* ── Стикер-дублёр «Записаться» (читается на репосте/скриншоте) ── */
+.link-sticker{display:inline-flex;align-items:center;gap:18px;background:#fff;color:#16121a;
+  font-family:var(--font-function);font-weight:700;font-size:40px;border-radius:22px;padding:22px 44px;
+  box-shadow:0 14px 40px -12px rgba(0,0,0,.6);}
+.link-sticker::before{content:'';width:34px;height:34px;border-radius:50%;background:var(--grad-hero);}
+
+/* ── Хайлайт «иконка-герой» (финальный паттерн) ── */
+.hl-icon{display:inline-flex;flex-direction:column;align-items:center;gap:16px;width:200px;}
+.hl-icon .circ{width:184px;height:184px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 32%,rgba(255,143,216,.55),rgba(123,91,255,.16) 70%),#221f28;
+  border:3px solid rgba(255,143,216,.32);}
+.hl-icon .circ svg{width:78px;height:78px;stroke:#fff;fill:none;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round;}
+.hl-icon .lbl{font-family:var(--font-function);font-weight:500;font-size:34px;color:var(--text-muted);letter-spacing:.02em;}
+/* акцентное кольцо на СТАРТ (ведёт глаз новичка) */
+.hl-icon.start .circ{position:relative;border-color:transparent;}
+.hl-icon.start .circ::after{content:'';position:absolute;inset:-12px;border-radius:50%;
+  background:conic-gradient(from 210deg,var(--blush),var(--pink),var(--violet),var(--blue),var(--blush));
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 8px),#000 calc(100% - 7px));
+          mask:radial-gradient(farthest-side,transparent calc(100% - 8px),#000 calc(100% - 7px));}
+.hl-icon.start .lbl{color:var(--pink);font-weight:700;}
+
+/* ═══════════════════════════════════════════════════════════
+   МОКАП ПРОФИЛЯ (витрина) — тема-зависимо через --ig-* токены
+   ═══════════════════════════════════════════════════════════ */
+.phone{width:1080px;background:var(--ig-bg);color:var(--ig-text);
+  font-family:var(--font-function);overflow:hidden;}
+.ig-top{display:flex;align-items:center;gap:14px;padding:30px 34px 10px;font-size:40px;font-weight:600;}
+.ig-top .verified{color:var(--ig-muted);font-size:30px;font-weight:400;}
+.ig-top .more{margin-left:auto;letter-spacing:4px;}
+.ig-head{display:flex;align-items:center;gap:48px;padding:14px 40px 4px;}
+.ig-ava{width:240px;height:240px;border-radius:50%;flex:none;padding:6px;
+  background:conic-gradient(from 200deg,var(--blush),var(--pink),var(--violet),var(--blue),var(--blush));}
+.ig-ava i{display:block;width:100%;height:100%;border-radius:50%;
+  background:#242427 url('../assets/flow-logo-white.svg') center/52% no-repeat;border:5px solid var(--ig-bg);}
+.ig-stats{flex:1;display:flex;justify-content:space-around;text-align:center;font-size:34px;}
+.ig-stats b{display:block;font-size:48px;font-weight:700;}
+.ig-stats span{color:var(--ig-muted);font-size:30px;}
+.ig-bio{padding:8px 40px 6px;font-size:36px;line-height:1.5;}
+.ig-bio .nm{font-weight:700;}
+.ig-bio .mut{color:var(--ig-muted);}
+.ig-bio .lk{color:var(--ig-link);font-weight:600;}
+.ig-cta-row{display:flex;gap:18px;padding:14px 40px 6px;}
+.ig-btn{flex:1;text-align:center;font-size:34px;font-weight:600;padding:20px;border-radius:14px;}
+.ig-btn.main{background:var(--grad-hero);color:#fff;}
+.ig-btn.sec{background:var(--ig-btn-sec);color:var(--ig-text);}
+.ig-hlrow{display:flex;gap:34px;padding:24px 40px 18px;}
+.ig-hlrow .hl-icon{width:150px;gap:12px;}
+.ig-hlrow .hl-icon .circ{width:150px;height:150px;border:2px solid var(--hairline);}
+.ig-hlrow .hl-icon .circ svg{width:62px;height:62px;}
+.ig-hlrow .hl-icon .lbl{font-size:28px;}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:6px 0 0;}
+.ig-tile{position:relative;aspect-ratio:1;overflow:hidden;background:var(--bg);}
+.ig-tile .pin{position:absolute;top:12px;right:12px;z-index:4;width:34px;height:34px;fill:var(--pink);}
+.ig-tile .ph{position:absolute;inset:0;background:var(--photo);background-size:cover;background-position:center;}
+.ig-tile .duol{position:absolute;inset:0;background:var(--duo);mix-blend-mode:soft-light;opacity:.5;}
+.ig-tile .aur{position:absolute;inset:0;opacity:var(--aura-strength);
+  background:radial-gradient(70% 60% at 30% 10%,rgba(255,143,216,.20),transparent 60%),var(--bg);}
+.ig-tile .tx{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;padding:24px;}
+.ig-tile .tx .em{font-family:var(--font-emotion);font-style:italic;font-size:64px;line-height:1;color:var(--text);}
+.ig-tile .tx .gt{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.ig-tile .tx .sm{font-size:28px;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);margin-top:14px;}
+.ig-tile.offer-t .lab{font-size:26px;letter-spacing:.14em;text-transform:uppercase;color:var(--lilac);margin-bottom:10px;}
+.ig-tile.offer-t .big{font-weight:800;font-size:92px;line-height:.92;color:var(--text);font-family:var(--font-function);}
+.ig-tile.offer-t .big.gt{color:transparent;}  /* градиентная цифра поверх правила выше */
+.ig-tile.offer-t .pl{margin-top:18px;font-size:26px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:#fff;background:var(--grad-hero);border-radius:100px;padding:12px 30px;font-family:var(--font-function);}
+
+/* ═══ V2 (тренды-2026) ═══ */
+
+/* ── Грейн / film-grain поверх фото (analog-тепло > цифровой глоу) ──
+      Авто-накладывается на любой фото-фрейм и слайд карусели. Над фото/дуотон/скрим, под текстом. */
+.frame:has(.photo)::after,.cslide::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  opacity:.13;mix-blend-mode:overlay;background-size:180px 180px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* ── Карусель: бесшовная панорама (одно широкое фото «течёт» через слайды; ~2× досвайпов) ── */
+.carousel-strip{display:flex;}
+.cslide{position:relative;width:1080px;height:1350px;flex:none;overflow:hidden;background:var(--bg);
+  color:var(--text);font-family:var(--font-function);}
+.cslide .pano{position:absolute;top:0;left:0;height:1350px;width:4320px;z-index:0;
+  background-size:4320px 1350px;background-position:left top;}  /* сдвиг среза — инлайном left:-(i*1080px) */
+.cslide .pad{position:relative;z-index:3;display:flex;flex-direction:column;height:100%;padding:96px 84px;}
+.cslide-seam{width:6px;flex:none;background:repeating-linear-gradient(180deg,rgba(255,255,255,.18) 0 12px,transparent 12px 24px);} /* пунктир стыка только в превью */
+.cnum{font-family:var(--font-emotion);font-style:italic;font-weight:600;font-size:150px;line-height:1;
+  display:block;margin-bottom:40px;}  /* lh 1 + отступ, чтобы цифра не налезала на заголовок */
+/* слайды карусели ВСЕГДА на фото (.pano, не .photo) → СПЛОШНОЙ светлый текст, без теней.
+   Контраст: светлый цвет + усиленный скрим (тёмная подложка). */
+.cslide .over,.cslide .section-label{color:var(--on-photo-label);}
+.cslide .body,.cslide .cta-hint{color:var(--on-photo-muted);font-weight:400;}
+.cslide .h2,.cslide .quote,.cslide .hero{color:var(--on-photo);}
+/* .cslide .gt — цвет задаёт общее правило выше (.frame:has(.photo) .gt,.cslide .gt → --on-photo-accent) */
+/* усиленный скрим — тёмная подложка даёт контраст светлому тексту на ярком фото */
+.cslide .scrim{background:linear-gradient(transparent,rgba(var(--scrim-rgb),.55) 26%,rgba(var(--scrim-rgb),.96));}
+.cslide .scrim--center{background:linear-gradient(rgba(var(--scrim-rgb),.62),rgba(var(--scrim-rgb),.82) 45%,rgba(var(--scrim-rgb),.94));}

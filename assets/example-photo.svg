@@ -1,0 +1,29 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#CDB7A1"/>
+    <stop offset="0.45" stop-color="#8E7686"/>
+    <stop offset="1" stop-color="#2C2632"/>
+  </linearGradient>
+  <radialGradient id="light" cx="0.52" cy="0.28" r="0.5">
+    <stop offset="0" stop-color="#FBE9DC" stop-opacity="0.55"/>
+    <stop offset="1" stop-color="#FBE9DC" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vig" cx="0.5" cy="0.62" r="0.75">
+    <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#15121A" stop-opacity="0.6"/>
+  </radialGradient>
+</defs>
+<rect width="1080" height="1920" fill="url(#bg)"/>
+<rect width="1080" height="1920" fill="url(#light)"/>
+<!-- силуэт: грациозная поза со сведёнными над головой руками -->
+<g fill="#241F2B" fill-opacity="0.82">
+  <circle cx="540" cy="760" r="84"/>
+  <path d="M452 880 C452 836 628 836 628 880 L686 1300 C700 1420 660 1520 540 1520 C420 1520 380 1420 394 1300 Z"/>
+</g>
+<g stroke="#241F2B" stroke-opacity="0.82" stroke-width="58" stroke-linecap="round" fill="none">
+  <path d="M474 905 C360 980 330 700 540 660"/>
+  <path d="M606 905 C720 980 750 700 540 660"/>
+</g>
+<rect width="1080" height="1920" fill="url(#vig)"/>
+</svg>

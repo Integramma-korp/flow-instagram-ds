@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow · Instagram — Филиалы (цветовые вариации)</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#141318;color:#fff;font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  .bar{position:sticky;top:0;z-index:50;display:flex;gap:12px;align-items:center;
+       padding:14px 20px;background:rgba(13,12,17,.85);backdrop-filter:blur(10px);border-bottom:1px solid #26242e;}
+  .bar img{height:22px;} .bar .sp{flex:1;}
+  .bar b{color:#fff;font-weight:600;}
+  .bar a{color:#cfccd6;text-decoration:none;font-size:13px;padding:7px 13px;border-radius:9px;border:1px solid transparent;}
+  .bar a:hover{background:#211f29;border-color:#3a3744;color:#fff;}
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 24px 90px;}
+  h1{font-size:34px;font-weight:500;margin:0 0 6px;}
+  h1 .gt{background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:'Playfair Display',serif;font-style:italic;}
+  .sub{color:#b9b4c4;font-size:15px;max-width:640px;line-height:1.6;margin:0 0 32px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+  .card{border-radius:16px;overflow:hidden;border:1px solid #2a2832;background:#1b1a21;}
+  .scene{aspect-ratio:3/4;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
+  .scene img{height:34px;}
+  .loc{font-size:14px;letter-spacing:.3em;text-transform:uppercase;font-weight:300;}
+  .sw{display:flex;gap:6px;padding:12px 14px 4px;}
+  .sw div{flex:1;height:30px;border-radius:6px;}
+  .tag{font-size:12px;color:#9c98a6;padding:6px 14px 14px;}
+  .note{margin-top:30px;background:#1b1a21;border:1px solid #2a2832;border-radius:14px;padding:16px 18px;font-size:14px;color:#b9b4c4;line-height:1.6;}
+  .note b{color:#fff;font-weight:500;}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <img src="assets/flow-logo-white.svg" alt="Flow">
+  <b>Филиалы · цветовые вариации</b>
+  <span class="sp"></span>
+  <a href="index.html">☰ Меню</a>
+  <a href="profile.html">Профиль</a>
+</div>
+
+<div class="wrap">
+  <h1>Филиалы · <span class="gt">оттенки-подписи</span></h1>
+  <p class="sub">Один бренд на все студии: логотип, градиент pink→violet и шрифты неизменны. Различается только тон тёмной базы и второй ауры — так подписчик подсознательно различает студии, но видит один Flow.</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="scene" style="background:radial-gradient(circle at 30% 22%,rgba(255,60,223,.3),transparent 58%),radial-gradient(circle at 75% 82%,rgba(201,164,122,.4),transparent 58%),#29241E;">
+        <img src="assets/flow-logo-white.svg" alt="Flow">
+        <div class="loc" style="color:#E4C9A6;">Балтийская</div>
+      </div>
+      <div class="sw"><div style="background:#29241E;"></div><div style="background:#C9A47A;"></div><div style="background:var(--grad-hero);"></div></div>
+      <div class="tag">тёплый капучино · база #29241E · тинт #C9A47A</div>
+    </div>
+
+    <div class="card">
+      <div class="scene" style="background:radial-gradient(circle at 30% 22%,rgba(255,60,223,.28),transparent 58%),radial-gradient(circle at 75% 82%,rgba(154,154,166,.42),transparent 58%),#272729;">
+        <img src="assets/flow-logo-white.svg" alt="Flow">
+        <div class="loc" style="color:#C6C8D4;">Мурино</div>
+      </div>
+      <div class="sw"><div style="background:#272729;"></div><div style="background:#9A9AA6;"></div><div style="background:var(--grad-hero);"></div></div>
+      <div class="tag">прохладный серый · база #272729 · тинт #9A9AA6</div>
+    </div>
+
+    <div class="card">
+      <div class="scene" style="background:radial-gradient(circle at 30% 22%,rgba(255,60,223,.3),transparent 58%),radial-gradient(circle at 75% 82%,rgba(216,184,140,.42),transparent 58%),#2C2620;">
+        <img src="assets/flow-logo-white.svg" alt="Flow">
+        <div class="loc" style="color:#EDD6B5;">Озерки</div>
+      </div>
+      <div class="sw"><div style="background:#2C2620;"></div><div style="background:#D8B88C;"></div><div style="background:var(--grad-hero);"></div></div>
+      <div class="tag">кремовый капучино · база #2C2620 · тинт #D8B88C</div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <b>Как применять:</b> базовый тёмный <b>#242427</b> заменяется на тон филиала только для фоновых плашек и второй ауры на обложках/сторис конкретной студии. Логотип, неоновый градиент, хайлайты и голубой CTA остаются общими. Балтийская и Озерки оба «капучино» — Озерки чуть светлее/кремовее, чтобы их можно было различить.
+  </div>
+</div>
+
+</body>
+</html>

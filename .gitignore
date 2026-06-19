@@ -1,0 +1,15 @@
+# Vercel
+.vercel
+
+# Node / экспорт PNG
+node_modules
+out
+package-lock.json
+
+# Secrets
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db

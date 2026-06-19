@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Flow · Instagram — Профиль-витрина (тёмная / светлая)</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/kit.css">
+<style>
+  body{margin:0;background:#15141a;font-family:'Jost',sans-serif;color:#cfccd6;}
+  .bar{position:sticky;top:0;z-index:50;display:flex;gap:14px;align-items:center;
+       padding:14px 20px;background:#0d0c11;border-bottom:1px solid #2a2832;}
+  .bar b{color:#fff;font-weight:600;letter-spacing:.04em;}
+  .bar a{font-family:'Jost';background:#211f29;color:#fff;border:1px solid #3a3744;
+       border-radius:10px;padding:8px 16px;font-size:13px;text-decoration:none;}
+  .bar .sp{flex:1;}
+  .stage{display:flex;gap:64px;justify-content:center;flex-wrap:wrap;padding:46px 26px 90px;}
+  .col{display:flex;flex-direction:column;align-items:center;gap:20px;}
+  .col h3{margin:0;font-family:'Jost';font-weight:600;font-size:17px;color:#fff;letter-spacing:.02em;}
+  .col h3 span{color:#8f8c98;font-weight:400;font-size:14px;}
+
+  /* презентационный корпус телефона (не системный компонент) */
+  .device{zoom:.34;border-radius:88px;padding:18px;background:#0b0b0e;
+    box-shadow:0 40px 120px -30px rgba(0,0,0,.8),0 0 0 2px #2a2832;}
+  .device.lt{background:#d9d6df;box-shadow:0 40px 120px -30px rgba(0,0,0,.55),0 0 0 2px #c4c0cc;}
+  .screen{position:relative;border-radius:72px;overflow:hidden;}
+  .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:30;
+    width:330px;height:74px;background:#0b0b0e;border-radius:0 0 40px 40px;}
+  .device.lt .notch{background:#d9d6df;}
+  .phone{padding-top:84px;padding-bottom:30px;}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <b>Flow · Профиль-витрина</b> <span style="opacity:.6">тёмная / светлая · на телефоне</span>
+  <span class="sp"></span>
+  <a href="index.html">☰ Меню</a>
+  <a href="conversion.html">← До / после</a>
+  <a href="stories.html">Сторис</a>
+  <a href="type-guide.html">Гайд по шрифтам ↗</a>
+</div>
+
+<div class="stage">
+  <div class="col"><h3>Тёмная тема <span>· ночной режим IG</span></h3>
+    <div class="device" id="dark"><div class="screen"><div class="notch"></div></div></div></div>
+  <div class="col"><h3>Светлая тема <span>· дневной режим IG</span></h3>
+    <div class="device lt" id="light"><div class="screen"><div class="notch"></div></div></div></div>
+</div>
+
+<!-- единая разметка витрины; клонируется в обе темы -->
+<template id="tpl">
+  <div class="phone">
+    <div class="ig-top">flow.training.lab <span class="verified">· студия</span><span class="more">···</span></div>
+    <div class="ig-head">
+      <div class="ig-ava"><i></i></div>
+      <div class="ig-stats">
+        <div><b>312</b><span>посты</span></div>
+        <div><b>4 712</b><span>чит.</span></div>
+        <div><b>180</b><span>подп.</span></div>
+      </div>
+    </div>
+    <div class="ig-bio">
+      <div class="nm">Flow · растяжка · фитнес · СПб</div>
+      <div>Студия женского тела 🤍</div>
+      <div class="mut">растяжка · фитнес · акробатика · танцы · группы до 8</div>
+      <div>🎁 Первое пробное — по кнопке ниже ↓</div>
+      <div class="lk">запись на пробное →</div>
+    </div>
+    <div class="ig-cta-row">
+      <div class="ig-btn main">Записаться</div>
+      <div class="ig-btn sec">Расписание</div>
+    </div>
+    <div class="ig-hlrow">
+      <div class="hl-icon start"><div class="circ"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div><div class="lbl">старт</div></div>
+      <div class="hl-icon"><div class="circ"><svg viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2a2 2 0 0 1-.6-1.4V5a2 2 0 0 1 2-2h6.99a2 2 0 0 1 1.41.59l7.2 7.2a2 2 0 0 1 0 2.82z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></div><div class="lbl">цены</div></div>
+      <div class="hl-icon"><div class="circ"><svg viewBox="0 0 24 24"><path d="m12 3 2.6 5.6 6.2.7-4.6 4.2 1.3 6.1L12 16.9 6.5 19.8l1.3-6.1L3.2 9.3l6.2-.7z"/></svg></div><div class="lbl">отзывы</div></div>
+      <div class="hl-icon"><div class="circ"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div><div class="lbl">график</div></div>
+    </div>
+    <div class="ig-grid">
+      <!-- 3 закрепа: оффер · соц-док · график -->
+      <div class="ig-tile offer-t"><svg class="pin" viewBox="0 0 24 24"><path d="M9 4h6l-1 7 4 3v2H6v-2l4-3z"/></svg>
+        <div class="tx"><div class="lab">первое пробное</div><div class="big">590&nbsp;₽</div><div class="pl">записаться</div></div></div>
+      <div class="ig-tile"><svg class="pin" viewBox="0 0 24 24"><path d="M9 4h6l-1 7 4 3v2H6v-2l4-3z"/></svg>
+        <div class="ph" style="background:url('assets/face.jpg') center top/cover;"></div><div class="duol"></div>
+        <div class="tx" style="justify-content:flex-end;"><div class="sm" style="margin:0 0 8px;color:var(--blush);">★★★★★ отзыв</div></div></div>
+      <div class="ig-tile"><svg class="pin" viewBox="0 0 24 24"><path d="M9 4h6l-1 7 4 3v2H6v-2l4-3z"/></svg>
+        <div class="aur"></div><div class="tx"><div class="em gt">график</div><div class="sm">пн–вс</div></div></div>
+
+      <div class="ig-tile"><div class="ph" style="background:url('assets/dance.jpg') center 30%/cover;"></div><div class="duol"></div></div>
+      <div class="ig-tile"><div class="aur"></div><div class="tx"><div class="em">энергия</div><div class="sm">а не муштра</div></div></div>
+      <div class="ig-tile"><div class="ph" style="background:url('assets/stretch.jpg') center 20%/cover;"></div><div class="duol"></div></div>
+
+      <div class="ig-tile offer-t"><div class="tx"><div class="lab">абонемент</div><div class="big gt">−40%</div><div class="sm" style="margin-top:8px;">до конца месяца</div></div></div>
+      <div class="ig-tile"><div class="ph" style="background:url('assets/fitness.jpg') center 25%/cover;"></div><div class="duol"></div></div>
+      <div class="ig-tile"><div class="aur"></div><div class="tx"><div class="em gt">stretch</div><div class="sm">3 шпагата</div></div></div>
+    </div>
+  </div>
+</template>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+  <linearGradient id="flowgrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FF8FD8"/><stop offset="1" stop-color="#7B5BFF"/>
+  </linearGradient>
+</defs></svg>
+
+<script>
+  const tpl=document.getElementById('tpl');
+  // тёмная — токены по умолчанию (:root)
+  document.querySelector('#dark .screen').appendChild(tpl.content.cloneNode(true));
+  // светлая — оборачиваем в data-theme="light" (переопределяет --ig-* и бренд-токены)
+  const lightWrap=document.createElement('div');
+  lightWrap.setAttribute('data-theme','light');
+  lightWrap.appendChild(tpl.content.cloneNode(true));
+  document.querySelector('#light .screen').appendChild(lightWrap);
+</script>
+</body>
+</html>
