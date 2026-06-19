@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow · План для аккаунта</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  body{margin:0;background:#1a191f;color:#EDEAF2;font-family:'Jost',sans-serif;font-weight:300;line-height:1.6;}
+  .bar{position:sticky;top:0;z-index:50;display:flex;gap:6px;align-items:center;
+       padding:12px 24px;background:rgba(13,12,17,.92);backdrop-filter:blur(10px);
+       border-bottom:1px solid #26242e;flex-wrap:wrap;}
+  .bar img{height:22px;}
+  .bar .sp{flex:1;}
+  .bar a{color:#cfccd6;text-decoration:none;font-size:13px;padding:7px 13px;border-radius:9px;border:1px solid transparent;}
+  .bar a:hover{background:#211f29;border-color:#3a3744;color:#fff;}
+  .bar a.on{background:#211f29;border-color:#3a3744;color:#fff;}
+  .bar .sep{width:1px;height:18px;background:#3a3744;flex-shrink:0;margin:0 4px;}
+  .wrap{max-width:840px;margin:0 auto;padding:36px 28px 110px;}
+  h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:52px;
+     background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0 0 8px;}
+  .lead{color:#A8A3B5;font-size:17px;max-width:620px;margin:0 0 8px;}
+  .meta{color:#6E6A7C;font-size:13px;margin:0 0 28px;}
+  .meta b{color:#A8A3B5;font-weight:500;}
+
+  .prog{position:sticky;top:55px;z-index:40;background:rgba(26,25,31,.94);backdrop-filter:blur(6px);
+        padding:14px 0 16px;margin:0 0 18px;border-bottom:1px solid rgba(255,255,255,.06);}
+  .prog .row{display:flex;align-items:center;gap:14px;}
+  .prog .track{flex:1;height:8px;border-radius:100px;background:#2a2832;overflow:hidden;}
+  .prog .fill{height:100%;width:0;background:var(--grad-hero);transition:width .3s;}
+  .prog .pct{font-size:14px;font-weight:500;color:#EDEAF2;white-space:nowrap;}
+  .prog .reset{font-size:12px;color:#6E6A7C;background:none;border:1px solid #3a3744;border-radius:8px;
+        padding:5px 10px;cursor:pointer;font-family:inherit;}
+  .prog .reset:hover{color:#FF8A98;border-color:#FF5A6E;}
+
+  h2{font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--blush);
+     margin:42px 0 14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);
+     display:flex;align-items:baseline;gap:10px;}
+  h2 .hz{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;text-transform:none;letter-spacing:0;
+     background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  h2 .wk{margin-left:auto;font-size:11px;letter-spacing:.1em;color:#6E6A7C;font-weight:400;}
+
+  .info{margin:0;padding-left:0;list-style:none;}
+  .info li{position:relative;padding:5px 0 5px 26px;color:#CFCBD9;font-size:15px;}
+  .info li::before{content:'';position:absolute;left:4px;top:13px;width:8px;height:8px;border-radius:3px;}
+  .info.good li::before{background:#08CEE9;}
+  .info.grow li::before{background:#FFB84D;}
+  .info li b{color:#fff;font-weight:500;}
+
+  .task{display:flex;gap:13px;align-items:flex-start;padding:13px 16px;margin:0 0 9px;
+        background:#221f29;border:1px solid rgba(255,255,255,.07);border-radius:13px;cursor:pointer;
+        transition:border-color .15s,background .15s;}
+  .task:hover{border-color:#4a4658;}
+  .task input{appearance:none;-webkit-appearance:none;flex-shrink:0;width:22px;height:22px;margin:1px 0 0;
+        border:2px solid #4a4658;border-radius:7px;cursor:pointer;position:relative;transition:.15s;}
+  .task input:checked{background:var(--blue-light);border-color:var(--blue-light);}
+  .task input:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+        color:#06222a;font-size:14px;font-weight:800;}
+  .task .body{flex:1;}
+  .task .t{font-size:16px;color:#EDEAF2;font-weight:400;}
+  .task .d{font-size:13.5px;color:#9B96A8;margin-top:3px;}
+  .task .d a{color:#7BE3F2;text-decoration:none;border-bottom:1px solid rgba(123,227,242,.3);}
+  .task.done{background:rgba(8,206,233,.06);border-color:rgba(8,206,233,.22);}
+  .task.done .t{color:#8E89A0;text-decoration:line-through;}
+
+  .rule{background:rgba(8,206,233,.1);border:1px solid rgba(8,206,233,.32);border-radius:14px;
+        padding:16px 20px;color:#9EE9F4;font-size:16px;margin:26px 0 0;}
+</style>
+</head>
+<body>
+<div class="bar">
+  <a href="index.html" style="padding:0;border-color:transparent;line-height:0;"><img src="assets/flow-logo-white.svg" alt="Flow"></a>
+  <span class="sp"></span>
+  <a href="stories.html">Сторис</a>
+  <a href="carousels.html">Карусель</a>
+  <a href="reels.html">Рилзы</a>
+  <a href="profile.html">Профиль</a>
+  <a href="filials.html">Филиалы</a>
+  <span class="sep"></span>
+  <a href="plan.html" class="on">План</a>
+  <a href="trends.html">Тренды</a>
+  <a href="conversion-guide.html">Правила</a>
+  <a href="type-guide.html">Типографика</a>
+</div>
+
+<div class="wrap">
+
+  <h1>План для аккаунта</h1>
+  <div class="lead">Что сделать с <b style="color:#EDEAF2">@flow.training.lab</b>, чтобы лента собралась в один почерк и работала на запись. Отмечай галочками — прогресс сохраняется в браузере.</div>
+  <div class="meta">Снимок профиля: <b>июнь 2026</b> · 253 поста · 4 735 подписчиков · taplink с пробным. Основано на ресёрче <a href="trends.html" style="color:#7BE3F2;text-decoration:none;">трендов</a> и <a href="conversion-guide.html" style="color:#7BE3F2;text-decoration:none;">правил конверсии</a>.</div>
+
+  <div class="prog">
+    <div class="row">
+      <span class="pct" id="pct">0 / 10</span>
+      <div class="track"><div class="fill" id="fill"></div></div>
+      <button class="reset" id="reset">Сбросить</button>
+    </div>
+  </div>
+
+  <h2>Сильное — не трогаем</h2>
+  <ul class="info good">
+    <li><b>Био</b> конверсионное («энергию, а не забирают» · «200+ девушек на шпагат») — работает.</li>
+    <li><b>Аватар</b> белый с тёмным лого — выигрывает в ленте подписок.</li>
+    <li><b>База и taplink</b> с прямой ссылкой на пробное.</li>
+  </ul>
+
+  <h2>Зоны роста</h2>
+  <ul class="info grow">
+    <li><b>Хайлайты в 3 разных стилях</b> — самый заметный визуальный разнобой.</li>
+    <li><b>Лента «рассыпается»</b> — нет единого фото-оверлея.</li>
+    <li><b>Мало Reels</b> — а это главный мотор охвата.</li>
+    <li><b>Конверсия пассивная</b> — ставка на ссылку, а не на опрос→ДМ.</li>
+  </ul>
+
+  <h2><span class="hz">Горизонт 1</span> Быстрые победы <span class="wk">неделя 1</span></h2>
+  <div data-task><label class="task"><input type="checkbox"><span class="body"><span class="t">Перевыпустить 8 хайлайтов в едином стиле «иконка-герой»</span><span class="d">фитнес · растяжка · акробатика · танцы · абонементы · отзывы · акции · с чего начать. Стиль залочен в <a href="profile.html">профиле</a>.</span></span></label></div>
+  <div data-task><label class="task"><input type="checkbox"><span class="body"><span class="t">Хайлайт «с чего начать» = голубой CTA</span><span class="d">проверить, что taplink ведёт на <code>/p/probnoe/</code>. Голубой = только пробное.</span></span></label></div>
+  <div data-task><label class="task"><input type="checkbox"><span class="body"><span class="t">Био и аватар оставить как есть</span><span class="d">работают — не трогаем.</span></span></label></div>
+
+  <h2><span class="hz">Горизонт 2</span> Система ленты <span class="wk">недели 2–3</span></h2>
+  <div data-task><label class="task"><input type="checkbox"><span class="body"><span class="t">Единый дуотон-оверлей ~35% на все новые посты</span><span class="d">лента собирается в один почерк. Шаблоны — <a href="stories.html">сторис</a>, <a href="carousels.html">карусели</a>.</span></span></label></div>
+  <div data-task><label class="task"><input type="checkbox"><span class="body"><span class="t">Reels-ритм 3 в неделю</span><span class="d">процесс тренировки · до/после · «5 ошибок в шпагате». Гайд — <a href="reels.html">рилзы</a>.</span></span></label></div>
+  <div data-task><label class="task"><input type="checkbox"><span class="body"><span class="t">Карусели-сейвы — полезное с триггером «сохрани»</span><span class="d">чеклисты, разборы. Приватные действия важнее лайков.</span></span></label></div>
+
+  <h2><span class="hz">Горизонт 3</span> Конверсия <span class="wk">недели 3–4</span></h2>
+  <div data-task><label class="task"><input type="checkbox"><span class="body"><span class="t">Воронка опрос-стикер → ДМ вместо голой ссылки</span><span class="d">12–18% против &lt;5%. «Хочешь попробовать? Да/Нет» → «Да» получает ДМ.</span></span></label></div>
+  <div data-task><label class="task"><input type="checkbox"><span class="body"><span class="t">Регулярная рубрика «до / после» + отзывы</span><span class="d">сильнейший рычаг записи. Шаблоны — <a href="conversion.html">до/после</a>.</span></span></label></div>
+  <div data-task><label class="task"><input type="checkbox"><span class="body"><span class="t">Голубой строго = пробное во всех точках</span><span class="d">в ките уже почищено (звёзды отзыва переведены на blush).</span></span></label></div>
+  <div data-task><label class="task"><input type="checkbox"><span class="body"><span class="t">Прямой призыв к репосту в сторис</span><span class="d">«поделись с подругой, которой это нужно» — лучший сигнал алгоритму.</span></span></label></div>
+
+  <h2>Что мерить</h2>
+  <ul class="info good">
+    <li><b>Приватные действия</b>: сохранения · репосты · ответы в ДМ.</li>
+    <li><b>Записи на пробное</b> через taplink.</li>
+    <li><b>Прирост охвата</b> от Reels.</li>
+  </ul>
+
+  <div class="rule">Порядок отдачи: сначала хайлайты и единый оверлей (видно сразу), потом Reels-охват, потом конверсионная механика. Читаемость → конверсия → охват.</div>
+
+</div>
+
+<script>
+  const KEY='flow-plan-v1';
+  const tasks=[...document.querySelectorAll('[data-task] input')];
+  const fill=document.getElementById('fill'), pct=document.getElementById('pct');
+  const saved=JSON.parse(localStorage.getItem(KEY)||'[]');
+  tasks.forEach((t,i)=>{ if(saved[i]) t.checked=true; });
+  function sync(){
+    const done=tasks.filter(t=>t.checked).length;
+    fill.style.width=(done/tasks.length*100)+'%';
+    pct.textContent=done+' / '+tasks.length;
+    tasks.forEach(t=>t.closest('.task').classList.toggle('done',t.checked));
+    localStorage.setItem(KEY,JSON.stringify(tasks.map(t=>t.checked)));
+  }
+  tasks.forEach(t=>t.addEventListener('change',sync));
+  document.getElementById('reset').addEventListener('click',()=>{tasks.forEach(t=>t.checked=false);sync();});
+  sync();
+</script>
+</body>
+</html>

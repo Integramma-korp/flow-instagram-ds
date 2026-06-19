@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Flow · Посты</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/kit.css">
+<style>
+  body{margin:0;background:#15141a;font-family:'Jost',sans-serif;}
+  .bar{position:sticky;top:0;z-index:50;display:flex;gap:14px;align-items:center;
+       padding:14px 20px;background:#0d0c11;border-bottom:1px solid #2a2832;color:#cfccd6;}
+  .bar b{color:#fff;font-weight:600;}
+  .bar .sp{flex:1;}
+  .bar a,.bar button{color:#cfccd6;text-decoration:none;background:#211f29;border:1px solid #3a3744;
+       border-radius:10px;padding:8px 16px;font-size:13px;cursor:pointer;font-family:inherit;}
+  .note{color:#8f8c98;font-size:14px;padding:20px 30px 6px;}
+  .sec{padding:28px 30px 10px;color:#fff;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lilac);}
+  .gallery{display:flex;flex-wrap:wrap;gap:20px;padding:10px 30px 40px;align-items:flex-start;}
+  .item{display:flex;flex-direction:column;gap:10px;}
+  .cap{font-size:12px;color:#8f8c98;letter-spacing:.08em;text-transform:uppercase;}
+  .stage{zoom:var(--zoom,.27);}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <b>Flow · Посты</b> <span style="opacity:.6">1080×1080 · 1080×1350</span>
+  <span class="sp"></span>
+  <a href="index.html">☰ Меню</a>
+  <button id="themeBtn">Тема: тёмная</button>
+  <button onclick="document.documentElement.style.setProperty('--zoom',(prompt('Масштаб','0.27')||0.27))">Масштаб</button>
+</div>
+<div class="note">Шаблоны постов для ленты. Квадрат 1080×1080 — цитаты, офферы, факты, анонсы. Портрет 1080×1350 — фото-посты.</div>
+
+<!-- ═══ КВАДРАТ 1080×1080 ═══ -->
+<div class="sec">Квадрат · 1080×1080</div>
+<div class="gallery">
+
+  <!-- 1 · ЦИТАТА -->
+  <div class="item">
+    <div class="cap">цитата</div>
+    <div class="stage">
+      <div class="frame frame--square" data-name="post-quote">
+        <div class="aura"></div>
+        <svg class="flow-line" viewBox="0 0 1080 1080" preserveAspectRatio="none">
+          <defs><linearGradient id="fg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8FD8"/><stop offset="1" stop-color="#7B5BFF"/></linearGradient></defs>
+          <path d="M-40 380 Q280 100 540 560 T1120 680" stroke="url(#fg1)"/>
+        </svg>
+        <div class="pad" style="justify-content:space-between;padding:100px 92px;">
+          <div class="over">вдохновение</div>
+          <div>
+            <div style="font-family:var(--font-emotion);font-style:italic;font-size:96px;line-height:1.1;color:var(--blush);margin-bottom:16px;">"</div>
+            <div class="quote" style="font-size:100px;line-height:1.1;">тело помнит всё,<br>что ты в него<br>вложила</div>
+            <div style="margin-top:50px;font-size:38px;color:var(--text-muted);letter-spacing:.05em;">— Анна · растяжка · 5 лет с Flow</div>
+          </div>
+          <div class="logo"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · ОФФЕР -->
+  <div class="item">
+    <div class="cap">оффер</div>
+    <div class="stage">
+      <div class="frame frame--square" data-name="post-offer">
+        <div class="aura"></div>
+        <div class="pad" style="justify-content:center;gap:0;">
+          <div class="over" style="margin-bottom:40px;">первое пробное</div>
+          <div class="offer">
+            <div class="offer-label">занятие всего за</div>
+            <div class="offer-price">590<small>&nbsp;₽</small></div>
+            <div class="offer-deadline">только июль · мест: 6</div>
+            <div class="pill pill--cta" style="margin-top:36px;">записаться</div>
+          </div>
+        </div>
+        <div class="sign"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 · ФАКТ / ЧИСЛО -->
+  <div class="item">
+    <div class="cap">факт · число</div>
+    <div class="stage">
+      <div class="frame frame--square" data-name="post-fact">
+        <div class="aura"></div>
+        <div class="pad" style="justify-content:space-between;padding:100px 92px;">
+          <div>
+            <div class="over">знаешь?</div>
+            <div class="hero gt" style="font-size:280px;line-height:.82;margin-top:20px;">90</div>
+            <div class="subhead" style="font-size:56px;margin-top:12px;">дней систематики</div>
+          </div>
+          <div>
+            <div class="hairline" style="margin-bottom:38px;"></div>
+            <div class="body" style="font-size:44px;line-height:1.4;">именно столько нужно телу, чтобы шпагат стал «своим» — не усилием, а привычкой</div>
+          </div>
+          <div class="logo"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 · АНОНС КЛАССА -->
+  <div class="item">
+    <div class="cap">анонс класса</div>
+    <div class="stage">
+      <div class="frame frame--square" data-name="post-announce">
+        <div class="aura"></div>
+        <svg class="flow-line" viewBox="0 0 1080 1080" preserveAspectRatio="none">
+          <defs><linearGradient id="fg2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#08CEE9"/><stop offset="1" stop-color="#7B5BFF"/></linearGradient></defs>
+          <path d="M1120 260 Q720 480 540 540 T-40 820" stroke="url(#fg2)"/>
+        </svg>
+        <div class="pad" style="justify-content:flex-end;padding-bottom:110px;">
+          <div class="over" style="color:var(--blue-light);">новый формат</div>
+          <div class="hero gt" style="font-size:176px;line-height:.88;margin:20px 0;">Aerial<br>Stretch</div>
+          <div class="subhead" style="font-size:50px;margin-top:34px;">
+            <span style="color:var(--blue-light);">сб</span> 14:00 · старт 5 июля
+          </div>
+          <div class="body" style="margin-top:26px;font-size:44px;">растяжка в гамаке — невесомость, глубина, эффект с первого раза</div>
+          <div class="pill" style="margin-top:44px;">лист ожидания →</div>
+        </div>
+        <div class="sign"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 · ФОТО-КВАДРАТ (совет) -->
+  <div class="item">
+    <div class="cap">фото · совет</div>
+    <div class="stage">
+      <div class="frame frame--square" data-name="post-photo-tip">
+        <div class="photo" style="background-image:url('assets/stretch.jpg');background-position:center 20%;"></div>
+        <div class="duo"></div><div class="scrim"></div>
+        <div class="pad" style="justify-content:flex-end;padding-bottom:100px;">
+          <div class="over">лайфхак</div>
+          <div class="quote" style="font-size:96px;margin-top:20px;">выдох<br>в растяжение</div>
+          <div class="body" style="margin-top:36px;font-size:44px;">тело отпускает на выдохе — это не метафора, а физиология. попробуй сегодня</div>
+        </div>
+        <div class="sign"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ ПОРТРЕТ 1080×1350 ═══ -->
+<div class="sec">Портрет · 1080×1350</div>
+<div class="gallery">
+
+  <!-- 6 · ФОТО + HEADLINE -->
+  <div class="item">
+    <div class="cap">фото · заголовок</div>
+    <div class="stage">
+      <div class="frame frame--portrait" data-name="post-photo-headline">
+        <div class="photo" style="background-image:url('assets/dance.jpg');background-position:center 20%;"></div>
+        <div class="duo"></div><div class="scrim"></div>
+        <div class="pad" style="justify-content:flex-end;padding-bottom:104px;">
+          <div class="over">о главном</div>
+          <div class="quote" style="font-size:106px;margin-top:24px;">растяжка —<br>это навык,<br>не данность</div>
+          <div class="body" style="margin-top:42px;font-size:46px;">любое тело обучаемо. вопрос только в методе и терпении</div>
+          <div class="pill pill--ghost" style="margin-top:50px;">узнать метод →</div>
+        </div>
+        <div class="sign"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 · ФОТО + ПРОМО-ОФФЕР -->
+  <div class="item">
+    <div class="cap">фото · промо</div>
+    <div class="stage">
+      <div class="frame frame--portrait" data-name="post-photo-promo">
+        <div class="photo" style="background-image:url('assets/stretch.jpg');background-position:center 25%;"></div>
+        <div class="duo"></div><div class="scrim"></div>
+        <div class="pad" style="justify-content:flex-end;padding-bottom:94px;">
+          <div class="over">июльский старт</div>
+          <div class="hero gt" style="font-size:134px;margin:20px 0 50px;">первое<br>пробное</div>
+          <div class="offer">
+            <div class="offer-label">занятие по</div>
+            <div class="offer-price" style="font-size:185px;">590<small>&nbsp;₽</small></div>
+            <div class="offer-deadline">только июль · мест: 6</div>
+            <div class="pill pill--primary" style="margin-top:34px;font-size:40px;padding:28px 56px;">записаться на пробное</div>
+            <div class="cta-hint" style="color:rgba(255,255,255,.75);">→ ссылка в шапке профиля</div>
+          </div>
+        </div>
+        <div class="sign"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 · ИСТОРИЯ РЕЗУЛЬТАТА -->
+  <div class="item">
+    <div class="cap">результат · история</div>
+    <div class="stage">
+      <div class="frame frame--portrait" data-name="post-result">
+        <div class="photo" style="background-image:url('assets/fitness.jpg');background-position:center 30%;"></div>
+        <div class="duo"></div><div class="scrim scrim--center"></div>
+        <div class="pad" style="justify-content:center;align-items:flex-start;">
+          <div class="over" style="margin-bottom:28px;">история участницы</div>
+          <div class="hero gt" style="font-size:210px;line-height:.85;">−30°</div>
+          <div class="subhead" style="font-size:62px;margin-top:18px;">к шпагату за 2 месяца</div>
+          <div class="hairline" style="margin:50px 0;width:100%;"></div>
+          <div class="body" style="font-size:46px;">"начинала с 90° угла.<br>сейчас вижу пол.<br>без боли, только с кайфом"</div>
+          <div style="margin-top:42px;font-size:36px;color:rgba(255,255,255,.65);letter-spacing:.04em;">— Марина, 34 · Stretch&Go</div>
+        </div>
+        <div class="sign"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 · ТРЕНЕР-КАРТОЧКА (портрет) -->
+  <div class="item">
+    <div class="cap">карточка тренера</div>
+    <div class="stage">
+      <div class="frame frame--portrait" data-name="post-trainer">
+        <div class="photo" style="background-image:url('assets/trainer.jpg');background-position:center 10%;"></div>
+        <div class="duo" style="background:linear-gradient(150deg,rgba(255,90,205,.28),rgba(123,91,255,.24));"></div>
+        <div class="scrim"></div>
+        <div class="pad" style="justify-content:flex-end;padding-bottom:104px;">
+          <div class="section-label">тренер</div>
+          <div class="hero" style="font-size:150px;margin:16px 0;">Анна</div>
+          <div class="subhead" style="font-size:50px;">растяжка · акробатика</div>
+          <div class="hairline" style="margin:44px 0;"></div>
+          <div class="body" style="font-size:44px;">7 лет в профессии · КМС по художественной гимнастике · ведёт группы до 8 человек</div>
+          <div class="pill" style="margin-top:48px;font-size:38px;">записаться к Анне</div>
+        </div>
+        <div class="sign"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const T=['','light','cappuccino'],N={'':'тёмная','light':'светлая','cappuccino':'капучино'};
+  const b=document.getElementById('themeBtn'),cur=()=>document.body.getAttribute('data-theme')||'';
+  const s=()=>b.textContent='Тема: '+N[cur()];
+  b.onclick=()=>{const n=T[(T.indexOf(cur())+1)%T.length];n?document.body.setAttribute('data-theme',n):document.body.removeAttribute('data-theme');s();};s();
+</script>
+</body>
+</html>
