@@ -6,11 +6,16 @@
 <link rel="stylesheet" href="css/tokens.css">
 <style>
   body{margin:0;background:#1a191f;color:#EDEAF2;font-family:'Jost',sans-serif;font-weight:300;
-       line-height:1.6;padding:60px 28px 120px;}
-  .wrap{max-width:880px;margin:0 auto;}
-  .back{display:inline-block;margin-bottom:26px;color:#A8A3B5;text-decoration:none;font-size:14px;
-        border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:7px 15px;}
-  .back:hover{color:#fff;border-color:rgba(255,255,255,.3);}
+       line-height:1.6;}
+  .bar{position:sticky;top:0;z-index:50;display:flex;gap:6px;align-items:center;
+       padding:12px 24px;background:rgba(13,12,17,.92);backdrop-filter:blur(10px);
+       border-bottom:1px solid #26242e;flex-wrap:wrap;}
+  .bar img{height:22px;}
+  .bar .sp{flex:1;}
+  .bar a{color:#cfccd6;text-decoration:none;font-size:13px;padding:7px 13px;border-radius:9px;border:1px solid transparent;}
+  .bar a:hover{background:#211f29;border-color:#3a3744;color:#fff;}
+  .bar .sep{width:1px;height:18px;background:#3a3744;flex-shrink:0;margin:0 4px;}
+  .wrap{max-width:880px;margin:0 auto;padding:36px 28px 120px;}
   h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:54px;
      background:var(--grad-hero);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0 0 6px;}
   .lead{color:#A8A3B5;font-size:18px;max-width:640px;margin:0 0 18px;}
@@ -52,9 +57,19 @@
 </style>
 </head>
 <body>
+<div class="bar">
+  <a href="index.html" style="padding:0;border-color:transparent;line-height:0;"><img src="assets/flow-logo-white.svg" alt="Flow"></a>
+  <span class="sp"></span>
+  <a href="stories.html">Сторис</a>
+  <a href="carousels.html">Карусель</a>
+  <a href="profile.html">Профиль</a>
+  <a href="filials.html">Филиалы</a>
+  <span class="sep"></span>
+  <a href="trends.html">Тренды</a>
+  <a href="conversion-guide.html">Правила</a>
+  <a href="type-guide.html">Типографика</a>
+</div>
 <div class="wrap">
-
-  <a class="back" href="index.html">☰ Меню</a>
 
   <h1>Визуальные тренды 2026</h1>
   <div class="lead">Что заходит в Instagram женского группового фитнеса (растяжка · акробатика · танец · фитнес) в 2026 — и как мы это применяем в ленте Flow, не ломая брендбук.</div>
