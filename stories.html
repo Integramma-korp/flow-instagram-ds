@@ -20,6 +20,20 @@
   .cell{display:flex;flex-direction:column;}
   .scrim--top{top:0;bottom:auto;background:linear-gradient(rgba(var(--scrim-rgb),.92) 0%,rgba(var(--scrim-rgb),.5) 55%,transparent 100%);}
   .gallery-sep{width:100%;padding:12px 30px 4px;color:#5a5768;font-size:28px;letter-spacing:.1em;text-transform:uppercase;font-family:'Jost',sans-serif;}
+  /* ---- Font kit + spec chips ---- */
+  .fk-block{flex:1 0 100%;background:#1b1924;border:1px solid #2a2832;border-radius:12px;padding:12px 18px;
+    display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;}
+  .fk-label{color:#6e6a7c;font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+  .fk-sep{width:1px;height:14px;background:#2a2832;flex-shrink:0;}
+  .fk-dl{color:#b9b4c4;text-decoration:none;font-size:11px;padding:3px 9px;background:#221f29;
+    border:1px solid #3a3744;border-radius:6px;transition:border-color .15s,color .15s;}
+  .fk-dl:hover{border-color:#7B5BFF;color:#c8c0ff;}
+  .spec-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+  .sc{cursor:pointer;font-size:11px;padding:2px 7px;background:#1b1924;border:1px solid #2a2832;
+    border-radius:5px;color:#6e6a7c;user-select:none;transition:border-color .12s,color .12s;
+    font-family:'Jost',sans-serif;white-space:nowrap;}
+  .sc:hover{border-color:#4a4658;color:#b9b4c4;}
+  .sc.ok{border-color:#08CEE9!important;color:#08CEE9!important;}
 </style>
 </head>
 <body>
@@ -43,6 +57,29 @@
 </div>
 
 <div class="gallery">
+
+  <!-- Font kit / spec reference -->
+  <div class="fk-block">
+    <span class="fk-label">холст</span>
+    <span class="sc" onclick="cs(this,'1080 × 1920 px')">1080×1920 px</span>
+    <span class="fk-sep"></span>
+    <span class="fk-label">шрифты ↓</span>
+    <a class="fk-dl" href="https://fonts.google.com/specimen/Playfair+Display" target="_blank" rel="noopener">Playfair Display</a>
+    <a class="fk-dl" href="https://fonts.google.com/specimen/Jost" target="_blank" rel="noopener">Jost</a>
+    <span class="fk-sep"></span>
+    <span class="fk-label">градиент</span>
+    <span class="sc" onclick="cs(this,'#FF3CDF')"><span style="color:#FF3CDF">◆</span> #FF3CDF</span>
+    <span class="sc" onclick="cs(this,'#7B5BFF')"><span style="color:#7B5BFF">◆</span> #7B5BFF</span>
+    <span class="sc" onclick="cs(this,'#08CEE9')"><span style="color:#08CEE9">◆</span> #08CEE9</span>
+    <span class="sc" onclick="cs(this,'linear-gradient(90deg,#FF3CDF,#7B5BFF,#08CEE9)')">css gradient</span>
+    <span class="fk-sep"></span>
+    <span class="fk-label">CTA</span>
+    <span class="sc" onclick="cs(this,'#08CEE9')" style="color:#08CEE9;border-color:rgba(8,206,233,.35);">#08CEE9</span>
+    <span class="fk-label">блаш</span>
+    <span class="sc" onclick="cs(this,'#FF8FD8')" style="color:#FF8FD8;border-color:rgba(255,143,216,.35);">#FF8FD8</span>
+    <span class="fk-label">фон</span>
+    <span class="sc" onclick="cs(this,'#1a191f')">#1a191f</span>
+  </div>
 
   <!-- Расписание делаем скрином из Fitbase — отдельный шаблон не нужен -->
 
