@@ -1,41 +1,77 @@
-/* Экспорт всех шаблонов в PNG натуральной величины (1080×1920 и т.п.).
+/* Экспорт всех шаблонов в PNG натуральной величины.
    Установка:  npm init -y && npm i puppeteer
-   Запуск:     node render.mjs            // обе темы
-               node render.mjs dark        // только тёмная
+   Запуск:     node render.mjs            — тёмная + светлая
+               node render.mjs dark       — только тёмная
    Результат:  ./out/<имя>-<тема>.png
+   Сервер:     должен работать на localhost:5577 (python -m http.server 5577)
 */
 import puppeteer from 'puppeteer';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
 import { mkdirSync } from 'fs';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
-const PAGES = ['stories.html', 'carousels.html']; // по мере роста кита добавляй сюда posts.html и т.д.
-const themes = (process.argv[2] ? [process.argv[2]] : ['dark', 'light']);
-mkdirSync(resolve(__dir, 'out'), { recursive: true });
+const BASE = 'http://localhost:5577';
+const OUT  = resolve(__dir, 'downloads');
+mkdirSync(OUT, { recursive: true });
 
-const browser = await puppeteer.launch({ headless: 'new' });
+const ALL_THEMES = ['dark', 'light'];
+
+// страницы → какие элементы рендерить, темы
+const PAGES = [
+  { file: 'stories.html',    sel: '.frame',    themes: process.argv[2] ? [process.argv[2]] : ALL_THEMES },
+  { file: 'carousels.html',  sel: '.cslide',   themes: process.argv[2] ? [process.argv[2]] : ALL_THEMES },
+  { file: 'posts.html',      sel: '.frame',    themes: process.argv[2] ? [process.argv[2]] : ALL_THEMES },
+  { file: 'highlights.html', sel: '.hl-cover', themes: ['dark'] }, // бренд-иконки — только тёмные
+];
+
+const browser = await puppeteer.launch({
+  headless: 'new',
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+});
 const page = await browser.newPage();
 await page.setViewport({ width: 1200, height: 2000, deviceScaleFactor: 1 });
 
-for (const file of PAGES) {
-  await page.goto('file://' + resolve(__dir, file).replace(/\\/g, '/'), { waitUntil: 'networkidle0' });
+for (const { file, sel, themes } of PAGES) {
+  const url = `${BASE}/${file}`;
+  console.log(`\n📄 ${file}`);
+  await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
   await page.evaluateHandle('document.fonts.ready');
-  // нейтрализуем превью-масштаб → натуральная величина; прячем превью-обвязку
-  await page.addStyleTag({ content: '.thumb,.stage{zoom:1!important}.bar,.cap,.note{display:none!important}.gallery,.scroll{gap:0;padding:0;overflow:visible!important}.cslide-seam{display:none!important}' });
-  const base = file.replace('.html', '');
+
+  // убираем превью-масштаб и UI-обвязку, показываем элементы в натуральную величину
+  await page.addStyleTag({ content: `
+    .stage{zoom:1!important;transform:none!important;}
+    .bar,.cap,.note,.sec{display:none!important;}
+    .gallery{gap:0!important;padding:0!important;flex-wrap:nowrap!important;overflow:visible!important;}
+    .cslide-seam{display:none!important;}
+  `});
 
   for (const theme of themes) {
-    await page.evaluate(t => { t === 'light' ? document.body.setAttribute('data-theme', 'light')
-                                             : document.body.removeAttribute('data-theme'); }, theme);
-    const els = await page.$$('.frame, .cslide');
-    let ci = 0;
-    for (const f of els) {
-      const name = await f.evaluate(el => el.dataset.name || '');
-      const fname = name || `${base}-${ci++}`;
-      await f.screenshot({ path: resolve(__dir, 'out', `${fname}-${theme}.png`) });
-      console.log('✓', `${fname}-${theme}.png`);
+    // установить тему
+    await page.evaluate((t) => {
+      const el = document.documentElement;
+      t === 'dark'
+        ? el.removeAttribute('data-theme')
+        : el.setAttribute('data-theme', t);
+    }, theme);
+
+    const els = await page.$$(sel);
+    if (!els.length) {
+      console.log(`  ⚠ нет элементов "${sel}" в ${file}`);
+      continue;
+    }
+
+    let idx = 0;
+    for (const el of els) {
+      const name = await el.evaluate(e => e.dataset.name || e.dataset.hl || '');
+      const slug = name || `${file.replace('.html','')}-${idx}`;
+      const fname = `${slug}-${theme}.png`;
+      await el.screenshot({ path: resolve(OUT, fname) });
+      console.log(`  ✓ out/${fname}`);
+      idx++;
     }
   }
 }
+
 await browser.close();
+console.log('\n✅ Готово! Файлы в ./out/');

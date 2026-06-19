@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Flow · Скачать шаблоны</title>
+<link rel="stylesheet" href="css/tokens.css">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#0f0e14;color:#cfccd6;font-family:'Jost',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  .bar{position:sticky;top:0;z-index:50;display:flex;gap:10px;align-items:center;
+       padding:12px 20px;background:#0d0c11;border-bottom:1px solid #2a2832;flex-wrap:wrap;}
+  .bar b{color:#fff;font-weight:600;font-size:14px;}
+  .bar .sp{flex:1;}
+  .bar a{color:#cfccd6;text-decoration:none;font-size:13px;padding:6px 12px;border-radius:9px;border:1px solid transparent;}
+  .bar a:hover{background:#211f29;border-color:#3a3744;color:#fff;}
+  .bar .sep{width:1px;height:18px;background:#3a3744;flex-shrink:0;margin:0 2px;}
+
+  .hero{max-width:980px;margin:0 auto;padding:48px 24px 8px;}
+  .hero h1{font-size:32px;font-weight:600;margin:0 0 6px;color:#fff;}
+  .hero p{color:#8f8c98;font-size:15px;margin:0;}
+
+  .sec{max-width:980px;margin:0 auto;padding:36px 24px 0;}
+  .sec-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#5a5768;margin-bottom:14px;}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:40px;}
+
+  .card{background:#17151d;border:1px solid #2a2832;border-radius:14px;overflow:hidden;transition:border-color .15s;}
+  .card:hover{border-color:#3d3a4d;}
+  .thumb{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#1e1c26;}
+  .thumb.portrait{aspect-ratio:4/5;}
+  .thumb.story{aspect-ratio:9/16;}
+  .card-body{padding:10px 12px 12px;}
+  .card-name{font-size:12px;color:#8f8c98;margin:0 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .card-btns{display:flex;gap:6px;}
+  .btn-dl{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:5px;
+          background:#08CEE9;color:#06222a;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+          padding:6px 8px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;}
+  .btn-dl.lt{background:#211f29;color:#cfccd6;font-weight:500;}
+  .btn-dl:hover{opacity:.85;}
+  .badge{display:inline-block;font-size:10px;padding:2px 6px;border-radius:5px;border:1px solid #3a3744;color:#7a7783;margin-bottom:6px;}
+
+  .note-box{background:#1a1823;border:1px solid #2e2b3a;border-radius:12px;padding:14px 18px;font-size:13px;color:#8f8c98;margin:0 24px 20px;max-width:980px;margin-left:auto;margin-right:auto;}
+  .note-box b{color:#fff;}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a href="index.html" style="padding:0;border-color:transparent;line-height:0;"><img src="assets/flow-logo-white.svg" alt="Flow" style="height:22px;"></a>
+  <b>Скачать PNG</b>
+  <span class="sp"></span>
+  <a href="stories.html">Сторис</a>
+  <a href="carousels.html">Карусель</a>
+  <a href="posts.html">Посты</a>
+  <a href="highlights.html">Хайлайты</a>
+  <span class="sep"></span>
+  <a href="index.html">← Все шаблоны</a>
+</div>
+
+<div class="hero">
+  <h1>Скачать шаблоны PNG</h1>
+  <p>Готовые файлы в натуральную величину для публикации в Instagram. Тёмная и светлая тема.</p>
+</div>
+
+<div class="note-box">
+  <b>Как скачать:</b> нажмите кнопку с темой (тёмная / светлая) — файл сохранится в «Загрузки». Все файлы в натуральном разрешении Instagram (1080×1080, 1080×1350, 1080×1920 px).
+</div>
+
+<!-- ═══ СТОРИС 1080×1920 ═══ -->
+<div class="sec">
+  <div class="sec-title">Сторис · 1080×1920</div>
+  <div class="grid" id="stories-grid"></div>
+</div>
+
+<!-- ═══ КАРУСЕЛЬ 1080×1350 ═══ -->
+<div class="sec">
+  <div class="sec-title">Карусель · 4 слайда · 1080×1350</div>
+  <div class="grid" id="carousels-grid"></div>
+</div>
+
+<!-- ═══ ПОСТЫ 1080×1080 / 1080×1350 ═══ -->
+<div class="sec">
+  <div class="sec-title">Посты квадрат · 1080×1080</div>
+  <div class="grid" id="posts-sq-grid"></div>
+</div>
+<div class="sec" style="padding-top:8px;">
+  <div class="sec-title">Посты портрет · 1080×1350</div>
+  <div class="grid" id="posts-pt-grid"></div>
+</div>
+
+<!-- ═══ ХАЙЛАЙТЫ 1080×1080 ═══ -->
+<div class="sec">
+  <div class="sec-title">Хайлайты · 1080×1080 · тёмная тема</div>
+  <div class="grid" id="hl-grid"></div>
+</div>
+
+<div style="height:60px;"></div>
+
+<script>
+const LABELS = {
+  // stories
+  'story-announce':   'Анонс',
+  'story-promo':      'Промо-оффер',
+  'story-review':     'Отзыв',
+  'story-quote':      'Цитата',
+  'story-trainer':    'Тренер',
+  'story-announce-b': 'Анонс Б',
+  'story-promo-b':    'Промо-оффер Б',
+  'story-review-b':   'Отзыв Б',
+  'story-quote-b':    'Цитата Б',
+  'story-trainer-b':  'Тренер Б',
+  // carousels
+  'carousel-cover':   'Обложка',
+  'carousel-slide-1': 'Слайд 1',
+  'carousel-slide-2': 'Слайд 2',
+  'carousel-cta':     'CTA-финал',
+  // posts square
+  'post-quote':       'Цитата',
+  'post-offer':       'Оффер 590₽',
+  'post-fact':        'Факт · 90 дней',
+  'post-announce':    'Анонс класса',
+  'post-photo-tip':   'Фото · совет',
+  // posts portrait
+  'post-photo-headline': 'Фото · заголовок',
+  'post-photo-promo':    'Фото · промо',
+  'post-result':         'История результата',
+  'post-trainer':        'Карточка тренера',
+  // highlights
+  'hl-start':         'СТАРТ',
+  'hl-fitness':       'Фитнес',
+  'hl-stretch':       'Растяжка',
+  'hl-subscriptions': 'Абонементы',
+  'hl-dance':         'Танцы',
+  'hl-reviews':       'Отзывы',
+  'hl-promo':         'Акции',
+  'hl-events':        'Мероприятия',
+  'hl-faq':           'FAQ',
+  'hl-trainers':      'Тренеры',
+  'hl-acrobatics':    'Акробатика',
+};
+
+function card(slug, aspect, themes) {
+  const label = LABELS[slug] || slug;
+  const btns = themes.map(t => {
+    const fn = `downloads/${slug}-${t}.png`;
+    const cls = t === 'dark' ? '' : ' lt';
+    return `<a class="btn-dl${cls}" href="${fn}" download="${slug}-${t}.png">${t === 'dark' ? '↓ тёмная' : '↓ светлая'}</a>`;
+  }).join('');
+  return `<div class="card">
+    <img class="thumb ${aspect}" src="downloads/${slug}-dark.png" alt="${label}" loading="lazy" onerror="this.style.display='none'">
+    <div class="card-body">
+      <div class="card-name">${label}</div>
+      <div class="card-btns">${btns}</div>
+    </div>
+  </div>`;
+}
+
+const BOTH = ['dark','light'];
+const DARK = ['dark'];
+
+document.getElementById('stories-grid').innerHTML = [
+  'story-announce','story-promo','story-review','story-quote','story-trainer',
+  'story-announce-b','story-promo-b','story-review-b','story-quote-b','story-trainer-b',
+].map(s => card(s, 'story', BOTH)).join('');
+
+document.getElementById('carousels-grid').innerHTML = [
+  'carousel-cover','carousel-slide-1','carousel-slide-2','carousel-cta',
+].map(s => card(s, 'portrait', BOTH)).join('');
+
+document.getElementById('posts-sq-grid').innerHTML = [
+  'post-quote','post-offer','post-fact','post-announce','post-photo-tip',
+].map(s => card(s, '', BOTH)).join('');
+
+document.getElementById('posts-pt-grid').innerHTML = [
+  'post-photo-headline','post-photo-promo','post-result','post-trainer',
+].map(s => card(s, 'portrait', BOTH)).join('');
+
+document.getElementById('hl-grid').innerHTML = [
+  'hl-start','hl-fitness','hl-stretch','hl-subscriptions','hl-dance',
+  'hl-reviews','hl-promo','hl-events','hl-faq','hl-trainers','hl-acrobatics',
+].map(s => card(s, '', DARK)).join('');
+</script>
+</body>
+</html>

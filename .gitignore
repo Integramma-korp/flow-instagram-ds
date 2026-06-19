@@ -1,10 +1,12 @@
 # Vercel
 .vercel
 
-# Node / экспорт PNG
+# Node
 node_modules
 out
 package-lock.json
+
+# downloads/ — НЕ игнорируем, туда идут PNG для Верцеля
 
 # Secrets
 .env
