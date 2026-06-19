@@ -389,22 +389,28 @@
     </div>
   </div>
 
-  <!-- 08 · Анонс · Балтийская — тёплый акцент -->
+  <!-- 08 · Анонс · Балтийская — тёплый капучино -->
   <div class="reel-cell">
     <div class="reel-thumb">
       <div class="frame frame--story">
-        <div class="photo" style="background-image:url('assets/dance.jpg');filter:brightness(.52) saturate(.45);"></div>
-        <div style="position:absolute;inset:0;background:linear-gradient(148deg,rgba(211,138,78,.52),rgba(208,86,143,.26));"></div>
+        <div class="photo" style="background-image:url('assets/dance.jpg');filter:brightness(.5) saturate(.6) sepia(.3);"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(180,118,54,.48) 0%,rgba(120,70,20,.22) 60%,transparent 100%);"></div>
         <div class="scrim"></div>
         <div class="vpb"><div class="vpb-fill" style="width:18%"></div></div>
-        <div style="position:absolute;top:58px;left:60px;z-index:20;background:rgba(211,138,78,.22);border:1px solid rgba(255,200,140,.45);border-radius:100px;padding:12px 34px;">
-          <span style="font-family:'Jost',sans-serif;font-size:38px;font-weight:400;color:#FFF6EC;letter-spacing:.08em;">Flow · Балтийская</span>
+        <!-- Studio header band -->
+        <div style="position:absolute;top:7px;left:0;right:0;height:128px;z-index:25;background:#C8956A;display:flex;align-items:center;padding:0 54px;gap:28px;">
+          <div style="width:6px;height:72px;background:rgba(20,10,2,.35);border-radius:4px;flex-shrink:0;"></div>
+          <div>
+            <div style="font-family:'Jost',sans-serif;font-size:28px;font-weight:400;color:rgba(20,10,2,.55);letter-spacing:.22em;text-transform:uppercase;line-height:1;">Flow</div>
+            <div style="font-family:'Jost',sans-serif;font-size:60px;font-weight:700;color:rgba(20,10,2,.82);letter-spacing:.04em;line-height:1.05;">Балтийская</div>
+          </div>
         </div>
-        <div style="position:absolute;bottom:520px;left:92px;right:200px;z-index:15;">
-          <div style="font-family:'Jost',sans-serif;font-size:40px;color:rgba(255,246,236,.6);letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;">пробное занятие</div>
-          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:112px;color:#FFF6EC;line-height:1.0;margin-bottom:26px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.6));">суббота<br>28 июня</div>
-          <div style="font-family:'Jost',sans-serif;font-size:52px;color:rgba(255,246,236,.65);font-weight:300;margin-bottom:38px;">12:00 · стретчинг</div>
-          <div class="cta" style="font-size:50px;padding:24px 52px;border-radius:100px;display:inline-block;">600 ₽ — записаться</div>
+        <!-- Event content -->
+        <div style="position:absolute;bottom:500px;left:92px;right:190px;z-index:15;">
+          <div style="font-family:'Jost',sans-serif;font-size:38px;color:#E4C9A6;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px;">пробное занятие</div>
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:116px;color:#FFF6EC;line-height:1.0;margin-bottom:24px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.65));">суббота<br>28 июня</div>
+          <div style="font-family:'Jost',sans-serif;font-size:52px;color:rgba(228,201,166,.7);font-weight:300;margin-bottom:38px;">12:00 · стретчинг</div>
+          <div class="cta" style="font-size:50px;padding:24px 52px;border-radius:100px;display:inline-block;background:#C8956A;color:#1a100a;border:none;">600 ₽ — записаться</div>
         </div>
         <div class="ri">
           <div class="ri-i">♡<small>1.4к</small></div>
@@ -415,30 +421,37 @@
         <div class="rl-sub"><span>Flow · Балтийская · сб 28/06 · 12:00 · 600 ₽</span></div>
       </div>
     </div>
-    <div class="reel-cap"><b>08</b> Анонс · Балтийская <span class="rl-tag">тёплый</span></div>
+    <div class="reel-cap"><b>08</b> Анонс · Балтийская <span class="rl-tag" style="border-color:#C8956A;color:#C8956A;">● тёплый</span></div>
     <div class="spec-row">
+      <span class="sc" onclick="cs(this,'#C8956A')"><span style="color:#C8956A;">◆</span> #C8956A шапка</span>
+      <span class="sc" onclick="cs(this,'#E4C9A6')"><span style="color:#E4C9A6;">◆</span> #E4C9A6 акцент</span>
       <span class="sc" onclick="cs(this,'Jost 700')">Jost 700</span>
-      <span class="sc" onclick="cs(this,'72px')">72px событие</span>
-      <span class="sc" onclick="cs(this,'rgba(211,138,78,0.52)')">overlay тёплый</span>
+      <span class="sc" onclick="cs(this,'Playfair Display Italic')">Playfair Italic</span>
     </div>
   </div>
 
-  <!-- 09 · Анонс · Мурино — нейтральный акцент -->
+  <!-- 09 · Анонс · Мурино — холодный серый -->
   <div class="reel-cell">
     <div class="reel-thumb">
       <div class="frame frame--story">
-        <div class="photo" style="background-image:url('assets/wide.jpg');filter:brightness(.48) saturate(.18);"></div>
-        <div style="position:absolute;inset:0;background:linear-gradient(148deg,rgba(120,118,138,.55),rgba(80,78,108,.35));"></div>
+        <div class="photo" style="background-image:url('assets/wide.jpg');filter:brightness(.44) saturate(.15) hue-rotate(200deg);"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(80,78,115,.52) 0%,rgba(50,48,85,.28) 60%,transparent 100%);"></div>
         <div class="scrim"></div>
         <div class="vpb"><div class="vpb-fill" style="width:18%"></div></div>
-        <div style="position:absolute;top:58px;left:60px;z-index:20;background:rgba(120,118,138,.22);border:1px solid rgba(200,198,220,.38);border-radius:100px;padding:12px 34px;">
-          <span style="font-family:'Jost',sans-serif;font-size:38px;font-weight:400;color:#EDEAF2;letter-spacing:.08em;">Flow · Мурино</span>
+        <!-- Studio header band -->
+        <div style="position:absolute;top:7px;left:0;right:0;height:128px;z-index:25;background:#6B6A8A;display:flex;align-items:center;padding:0 54px;gap:28px;">
+          <div style="width:6px;height:72px;background:rgba(255,255,255,.2);border-radius:4px;flex-shrink:0;"></div>
+          <div>
+            <div style="font-family:'Jost',sans-serif;font-size:28px;font-weight:400;color:rgba(255,255,255,.5);letter-spacing:.22em;text-transform:uppercase;line-height:1;">Flow</div>
+            <div style="font-family:'Jost',sans-serif;font-size:60px;font-weight:700;color:#EDEAF2;letter-spacing:.04em;line-height:1.05;">Мурино</div>
+          </div>
         </div>
-        <div style="position:absolute;bottom:520px;left:92px;right:200px;z-index:15;">
-          <div style="font-family:'Jost',sans-serif;font-size:40px;color:rgba(237,234,242,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;">пробное занятие</div>
-          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:112px;color:#EDEAF2;line-height:1.0;margin-bottom:26px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.7));">суббота<br>28 июня</div>
-          <div style="font-family:'Jost',sans-serif;font-size:52px;color:rgba(237,234,242,.55);font-weight:300;margin-bottom:38px;">12:00 · стретчинг</div>
-          <div class="cta" style="font-size:50px;padding:24px 52px;border-radius:100px;display:inline-block;">600 ₽ — записаться</div>
+        <!-- Event content -->
+        <div style="position:absolute;bottom:500px;left:92px;right:190px;z-index:15;">
+          <div style="font-family:'Jost',sans-serif;font-size:38px;color:#C6C8D4;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px;">пробное занятие</div>
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:116px;color:#EDEAF2;line-height:1.0;margin-bottom:24px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.7));">суббота<br>28 июня</div>
+          <div style="font-family:'Jost',sans-serif;font-size:52px;color:rgba(198,200,212,.65);font-weight:300;margin-bottom:38px;">12:00 · стретчинг</div>
+          <div class="cta" style="font-size:50px;padding:24px 52px;border-radius:100px;display:inline-block;background:#6B6A8A;color:#EDEAF2;border:none;">600 ₽ — записаться</div>
         </div>
         <div class="ri">
           <div class="ri-i">♡<small>1.1к</small></div>
@@ -449,11 +462,53 @@
         <div class="rl-sub"><span>Flow · Мурино · сб 28/06 · 12:00 · 600 ₽</span></div>
       </div>
     </div>
-    <div class="reel-cap"><b>09</b> Анонс · Мурино <span class="rl-tag">серый</span></div>
+    <div class="reel-cap"><b>09</b> Анонс · Мурино <span class="rl-tag" style="border-color:#6B6A8A;color:#9a98b8;">● серый</span></div>
     <div class="spec-row">
+      <span class="sc" onclick="cs(this,'#6B6A8A')"><span style="color:#9a98b8;">◆</span> #6B6A8A шапка</span>
+      <span class="sc" onclick="cs(this,'#C6C8D4')"><span style="color:#C6C8D4;">◆</span> #C6C8D4 акцент</span>
       <span class="sc" onclick="cs(this,'Jost 700')">Jost 700</span>
-      <span class="sc" onclick="cs(this,'72px')">72px событие</span>
-      <span class="sc" onclick="cs(this,'rgba(120,118,138,0.55)')">overlay серый</span>
+      <span class="sc" onclick="cs(this,'Playfair Display Italic')">Playfair Italic</span>
+    </div>
+  </div>
+
+  <!-- 10 · Анонс · Озерки — золотисто-кремовый -->
+  <div class="reel-cell">
+    <div class="reel-thumb">
+      <div class="frame frame--story">
+        <div class="photo" style="background-image:url('assets/trainer.jpg');filter:brightness(.48) saturate(.55) sepia(.2);background-position:center 15%;"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(160,128,60,.44) 0%,rgba(100,80,25,.2) 60%,transparent 100%);"></div>
+        <div class="scrim"></div>
+        <div class="vpb"><div class="vpb-fill" style="width:18%"></div></div>
+        <!-- Studio header band -->
+        <div style="position:absolute;top:7px;left:0;right:0;height:128px;z-index:25;background:#B09050;display:flex;align-items:center;padding:0 54px;gap:28px;">
+          <div style="width:6px;height:72px;background:rgba(15,10,0,.35);border-radius:4px;flex-shrink:0;"></div>
+          <div>
+            <div style="font-family:'Jost',sans-serif;font-size:28px;font-weight:400;color:rgba(15,10,0,.5);letter-spacing:.22em;text-transform:uppercase;line-height:1;">Flow</div>
+            <div style="font-family:'Jost',sans-serif;font-size:60px;font-weight:700;color:rgba(15,10,0,.8);letter-spacing:.04em;line-height:1.05;">Озерки</div>
+          </div>
+        </div>
+        <!-- Event content -->
+        <div style="position:absolute;bottom:500px;left:92px;right:190px;z-index:15;">
+          <div style="font-family:'Jost',sans-serif;font-size:38px;color:#EDD6B5;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px;">пробное занятие</div>
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:116px;color:#FFF8EC;line-height:1.0;margin-bottom:24px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.6));">суббота<br>28 июня</div>
+          <div style="font-family:'Jost',sans-serif;font-size:52px;color:rgba(237,214,181,.65);font-weight:300;margin-bottom:38px;">12:00 · стретчинг</div>
+          <div class="cta" style="font-size:50px;padding:24px 52px;border-radius:100px;display:inline-block;background:#B09050;color:#100c02;border:none;">600 ₽ — записаться</div>
+        </div>
+        <div class="ri">
+          <div class="ri-i">♡<small>1.2к</small></div>
+          <div class="ri-i">💬<small>82</small></div>
+          <div class="ri-i">↗<small>194</small></div>
+          <div class="ri-i">🔖<small>341</small></div>
+        </div>
+        <div class="rl-sub"><span>Flow · Озерки · сб 28/06 · 12:00 · 600 ₽</span></div>
+      </div>
+    </div>
+    <div class="reel-cap"><b>10</b> Анонс · Озерки <span class="rl-tag" style="border-color:#B09050;color:#C9A860;">● золотой</span></div>
+    <div class="spec-row">
+      <span class="sc" onclick="cs(this,'#B09050')"><span style="color:#C9A860;">◆</span> #B09050 шапка</span>
+      <span class="sc" onclick="cs(this,'#EDD6B5')"><span style="color:#EDD6B5;">◆</span> #EDD6B5 акцент</span>
+      <span class="sc" onclick="cs(this,'Jost 700')">Jost 700</span>
+      <span class="sc" onclick="cs(this,'Playfair Display Italic')">Playfair Italic</span>
     </div>
   </div>
 
