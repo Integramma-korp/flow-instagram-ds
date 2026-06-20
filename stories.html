@@ -38,6 +38,23 @@
   .bar button{font-family:'Jost',sans-serif;background:#211f29;color:#cfccd6;border:1px solid #3a3744;
        border-radius:9px;padding:6px 12px;font-size:13px;cursor:pointer;}
   .bar button:hover{color:#fff;border-color:#4a4658;}
+
+  /* Студии: секции-якоря + правая навигация */
+  html{scroll-behavior:smooth;}
+  .st-sec{scroll-margin-top:80px;}
+  .st-head{display:flex;align-items:center;gap:12px;padding:22px 30px 2px;color:#fff;font-size:19px;font-weight:600;letter-spacing:.01em;}
+  .st-head .st-bullet{width:14px;height:14px;border-radius:50%;flex-shrink:0;}
+  .studio-nav{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:60;
+       display:flex;flex-direction:column;gap:2px;padding:12px;border-radius:16px;
+       background:rgba(13,12,17,.86);backdrop-filter:blur(10px);border:1px solid #2a2832;
+       box-shadow:0 10px 40px rgba(0,0,0,.35);}
+  .studio-nav .sn-title{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7a7783;padding:2px 10px 8px;}
+  .studio-nav .sn-link{display:flex;align-items:center;gap:10px;font-size:13px;color:#cfccd6;text-decoration:none;
+       padding:9px 12px;border-radius:10px;border:1px solid transparent;white-space:nowrap;transition:background .12s,border-color .12s,color .12s;}
+  .studio-nav .sn-link:hover{background:#211f29;color:#fff;}
+  .studio-nav .sn-link.on{background:#211f29;border-color:#3a3744;color:#fff;}
+  .studio-nav .sn-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2px rgba(255,255,255,.06);}
+  @media(max-width:720px){.studio-nav{display:none;}}
 </style>
 </head>
 <body>
@@ -259,6 +276,98 @@
 
 </div>
 
+<!-- ═══ СТУДИИ · ВАРИАНТЫ ═══ -->
+<div class="gallery-sep" style="color:var(--blush);">Студии · варианты</div>
+<div class="note" style="color:#8f8c98;font-size:14px;padding:6px 30px 0;">Шаблон «Анонс / событие» — в акцентном цвете студии. Навигация справа → переход к нужной студии.</div>
+
+<nav class="studio-nav" id="studioNav" aria-label="Навигация по студиям">
+  <div class="sn-title">Студии</div>
+  <a href="#st-baltiyskaya"   class="sn-link"><i class="sn-dot" style="background:#E5CFA8;"></i>Балтийская</a>
+  <a href="#st-murino"        class="sn-link"><i class="sn-dot" style="background:#9A9AA6;"></i>Мурино</a>
+  <a href="#st-ozerki"        class="sn-link"><i class="sn-dot" style="background:#C99A6B;"></i>Озерки</a>
+  <a href="#st-vladimirskaya" class="sn-link"><i class="sn-dot" style="background:#A488CC;"></i>Владимирская</a>
+</nav>
+
+<section class="st-sec" id="st-baltiyskaya">
+  <div class="st-head"><span class="st-bullet" style="background:#E5CFA8;"></span>Балтийская</div>
+  <div class="gallery">
+  <div class="cell"><div class="thumb">
+    <div class="frame frame--story" data-name="story-announce-baltiyskaya">
+      <div class="photo" style="background-image:url('assets/stretch.jpg')"></div><div class="duo"></div><div class="scrim"></div>
+      <div class="pad" style="justify-content:flex-end;">
+        <div class="over" style="color:#EFDFC2;">Балтийская · новый поток</div>
+        <div class="hero gt" style="font-size:152px;">stretching</div>
+        <div class="subhead">3 шпагата</div>
+        <div class="body mt-s" style="max-width:88%;">мягкая, но глубокая растяжка. старт 20 ноября — успей в первый набор.</div>
+        <div class="pill mt-m" style="align-self:flex-start;background:#E5CFA8;border-color:#E5CFA8;color:#1a0a04;">записаться</div>
+        <div class="cta-hint">→ ссылка в шапке профиля</div>
+      </div>
+      <div class="sign" role="img" aria-label="FLOW"></div>
+    </div>
+  </div><div class="cap">Анонс · Балтийская</div></div>
+  </div>
+</section>
+
+<section class="st-sec" id="st-murino">
+  <div class="st-head"><span class="st-bullet" style="background:#9A9AA6;"></span>Мурино</div>
+  <div class="gallery">
+  <div class="cell"><div class="thumb">
+    <div class="frame frame--story" data-name="story-announce-murino">
+      <div class="photo" style="background-image:url('assets/stretch.jpg')"></div><div class="duo"></div><div class="scrim"></div>
+      <div class="pad" style="justify-content:flex-end;">
+        <div class="over" style="color:#9A9AA6;">Мурино · новый поток</div>
+        <div class="hero gt" style="font-size:152px;">stretching</div>
+        <div class="subhead">3 шпагата</div>
+        <div class="body mt-s" style="max-width:88%;">мягкая, но глубокая растяжка. старт 20 ноября — успей в первый набор.</div>
+        <div class="pill mt-m" style="align-self:flex-start;background:#9A9AA6;border-color:#9A9AA6;color:#111118;">записаться</div>
+        <div class="cta-hint">→ ссылка в шапке профиля</div>
+      </div>
+      <div class="sign" role="img" aria-label="FLOW"></div>
+    </div>
+  </div><div class="cap">Анонс · Мурино</div></div>
+  </div>
+</section>
+
+<section class="st-sec" id="st-ozerki">
+  <div class="st-head"><span class="st-bullet" style="background:#C99A6B;"></span>Озерки</div>
+  <div class="gallery">
+  <div class="cell"><div class="thumb">
+    <div class="frame frame--story" data-name="story-announce-ozerki">
+      <div class="photo" style="background-image:url('assets/stretch.jpg')"></div><div class="duo"></div><div class="scrim"></div>
+      <div class="pad" style="justify-content:flex-end;">
+        <div class="over" style="color:#E0BD96;">Озерки · новый поток</div>
+        <div class="hero gt" style="font-size:152px;">stretching</div>
+        <div class="subhead">3 шпагата</div>
+        <div class="body mt-s" style="max-width:88%;">мягкая, но глубокая растяжка. старт 20 ноября — успей в первый набор.</div>
+        <div class="pill mt-m" style="align-self:flex-start;background:#C99A6B;border-color:#C99A6B;color:#1a0a04;">записаться</div>
+        <div class="cta-hint">→ ссылка в шапке профиля</div>
+      </div>
+      <div class="sign" role="img" aria-label="FLOW"></div>
+    </div>
+  </div><div class="cap">Анонс · Озерки</div></div>
+  </div>
+</section>
+
+<section class="st-sec" id="st-vladimirskaya">
+  <div class="st-head"><span class="st-bullet" style="background:#A488CC;"></span>Владимирская</div>
+  <div class="gallery">
+  <div class="cell"><div class="thumb">
+    <div class="frame frame--story" data-name="story-announce-vladimirskaya">
+      <div class="photo" style="background-image:url('assets/stretch.jpg')"></div><div class="duo"></div><div class="scrim"></div>
+      <div class="pad" style="justify-content:flex-end;">
+        <div class="over" style="color:#C9B5E2;">Владимирская · новый поток</div>
+        <div class="hero gt" style="font-size:152px;">stretching</div>
+        <div class="subhead">3 шпагата</div>
+        <div class="body mt-s" style="max-width:88%;">мягкая, но глубокая растяжка. старт 20 ноября — успей в первый набор.</div>
+        <div class="pill mt-m" style="align-self:flex-start;background:#A488CC;border-color:#A488CC;color:#1a0204;">записаться</div>
+        <div class="cta-hint">→ ссылка в шапке профиля</div>
+      </div>
+      <div class="sign" role="img" aria-label="FLOW"></div>
+    </div>
+  </div><div class="cap">Анонс · Владимирская</div></div>
+  </div>
+</section>
+
 <script>
   // copy spec chip value to clipboard
   function cs(el, val) {
@@ -306,10 +415,28 @@
   if(p.get('theme')) document.body.setAttribute('data-theme', p.get('theme'));
   const btn = document.getElementById('themeBtn');
   const cur = ()=> document.body.getAttribute('data-theme')||'';
-  const sync = ()=> btn.textContent = 'Тема: ' + NAMES[cur()];
-  btn.onclick = ()=>{ const n=THEMES[(THEMES.indexOf(cur())+1)%THEMES.length];
-    if(n) document.body.setAttribute('data-theme',n); else document.body.removeAttribute('data-theme'); sync(); };
-  sync();
+  if(btn){
+    const sync = ()=> btn.textContent = 'Тема: ' + NAMES[cur()];
+    btn.onclick = ()=>{ const n=THEMES[(THEMES.indexOf(cur())+1)%THEMES.length];
+      if(n) document.body.setAttribute('data-theme',n); else document.body.removeAttribute('data-theme'); sync(); };
+    sync();
+  }
+
+  // Студии: подсветка активной секции при прокрутке (scroll-spy)
+  (function(){
+    const links=[...document.querySelectorAll('.studio-nav .sn-link')];
+    if(!links.length)return;
+    const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          links.forEach(l=>l.classList.remove('on'));
+          const a=map.get(e.target.id); if(a)a.classList.add('on');
+        }
+      });
+    },{rootMargin:'-45% 0px -45% 0px',threshold:0});
+    document.querySelectorAll('.st-sec').forEach(sec=>io.observe(sec));
+  })();
 </script>
 </body>
 </html>

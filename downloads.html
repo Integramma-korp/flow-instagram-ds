@@ -109,11 +109,21 @@ const LABELS = {
   'story-review-b':   'Отзыв Б',
   'story-quote-b':    'Цитата Б',
   'story-trainer-b':  'Тренер Б',
+  // stories — студии
+  'story-announce-baltiyskaya':   'Анонс · Балтийская',
+  'story-announce-murino':        'Анонс · Мурино',
+  'story-announce-ozerki':        'Анонс · Озерки',
+  'story-announce-vladimirskaya': 'Анонс · Владимирская',
   // carousels
   'carousel-cover':   'Обложка',
   'carousel-slide-1': 'Слайд 1',
   'carousel-slide-2': 'Слайд 2',
   'carousel-cta':     'CTA-финал',
+  // carousels — студии
+  'carousel-cover-baltiyskaya':   'Обложка · Балтийская',
+  'carousel-cover-murino':        'Обложка · Мурино',
+  'carousel-cover-ozerki':        'Обложка · Озерки',
+  'carousel-cover-vladimirskaya': 'Обложка · Владимирская',
   // posts square
   'post-quote':       'Цитата',
   'post-offer':       'Оффер 590₽',
@@ -166,10 +176,12 @@ const DARK = ['dark'];
 document.getElementById('stories-grid').innerHTML = [
   'story-announce','story-promo','story-review','story-quote','story-trainer',
   'story-announce-b','story-promo-b','story-review-b','story-quote-b','story-trainer-b',
+  'story-announce-baltiyskaya','story-announce-murino','story-announce-ozerki','story-announce-vladimirskaya',
 ].map(s => card(s, 'story', BOTH)).join('');
 
 document.getElementById('carousels-grid').innerHTML = [
   'carousel-cover','carousel-slide-1','carousel-slide-2','carousel-cta',
+  'carousel-cover-baltiyskaya','carousel-cover-murino','carousel-cover-ozerki','carousel-cover-vladimirskaya',
 ].map(s => card(s, 'portrait', BOTH)).join('');
 
 document.getElementById('posts-sq-grid').innerHTML = [

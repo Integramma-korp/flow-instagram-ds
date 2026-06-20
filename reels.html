@@ -84,6 +84,23 @@
   .bar button{font-family:'Jost',sans-serif;background:#211f29;color:#cfccd6;border:1px solid #3a3744;
        border-radius:9px;padding:6px 12px;font-size:13px;cursor:pointer;}
   .bar button:hover{color:#fff;border-color:#4a4658;}
+
+  /* Студии: секции-якоря + правая навигация */
+  html{scroll-behavior:smooth;}
+  .st-sec{scroll-margin-top:80px;}
+  .st-head{display:flex;align-items:center;gap:12px;padding:22px 28px 2px;max-width:1160px;margin:0 auto;color:#fff;font-size:19px;font-weight:600;letter-spacing:.01em;}
+  .st-head .st-bullet{width:14px;height:14px;border-radius:50%;flex-shrink:0;}
+  .studio-nav{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:60;
+       display:flex;flex-direction:column;gap:2px;padding:12px;border-radius:16px;
+       background:rgba(13,12,17,.86);backdrop-filter:blur(10px);border:1px solid #2a2832;
+       box-shadow:0 10px 40px rgba(0,0,0,.35);}
+  .studio-nav .sn-title{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7a7783;padding:2px 10px 8px;}
+  .studio-nav .sn-link{display:flex;align-items:center;gap:10px;font-size:13px;color:#cfccd6;text-decoration:none;
+       padding:9px 12px;border-radius:10px;border:1px solid transparent;white-space:nowrap;transition:background .12s,border-color .12s,color .12s;}
+  .studio-nav .sn-link:hover{background:#211f29;color:#fff;}
+  .studio-nav .sn-link.on{background:#211f29;border-color:#3a3744;color:#fff;}
+  .studio-nav .sn-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 2px rgba(255,255,255,.06);}
+  @media(max-width:720px){.studio-nav{display:none;}}
 </style>
 </head>
 <body>
@@ -396,6 +413,24 @@
     </div>
   </div>
 
+</div>
+
+<!-- ═══ СТУДИИ · ВАРИАНТЫ ═══ -->
+<div class="st-head" style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--blush);padding-top:36px;">Студии · варианты</div>
+<div class="note" style="max-width:1160px;margin:0 auto;color:#8f8c98;font-size:14px;padding:6px 28px 0;">Те же анонс-рилзы — в акцентном цвете студии. Навигация справа → переход к нужной студии.</div>
+
+<nav class="studio-nav" id="studioNav" aria-label="Навигация по студиям">
+  <div class="sn-title">Студии</div>
+  <a href="#st-baltiyskaya"   class="sn-link"><i class="sn-dot" style="background:#E5CFA8;"></i>Балтийская</a>
+  <a href="#st-murino"        class="sn-link"><i class="sn-dot" style="background:#9A9AA6;"></i>Мурино</a>
+  <a href="#st-ozerki"        class="sn-link"><i class="sn-dot" style="background:#C99A6B;"></i>Озерки</a>
+  <a href="#st-vladimirskaya" class="sn-link"><i class="sn-dot" style="background:#A488CC;"></i>Владимирская</a>
+</nav>
+
+<section class="st-sec" id="st-baltiyskaya">
+  <div class="st-head"><span class="st-bullet" style="background:#E5CFA8;"></span>Балтийская</div>
+  <div class="reel-gallery">
+
   <!-- 08 · Анонс · Балтийская -->
   <div class="reel-cell">
     <div class="reel-thumb">
@@ -425,6 +460,13 @@
       <span class="sc" onclick="cs(this,'112px')">112px</span>
     </div>
   </div>
+
+  </div>
+</section>
+
+<section class="st-sec" id="st-murino">
+  <div class="st-head"><span class="st-bullet" style="background:#9A9AA6;"></span>Мурино</div>
+  <div class="reel-gallery">
 
   <!-- 09 · Анонс · Мурино -->
   <div class="reel-cell">
@@ -456,6 +498,13 @@
     </div>
   </div>
 
+  </div>
+</section>
+
+<section class="st-sec" id="st-ozerki">
+  <div class="st-head"><span class="st-bullet" style="background:#C99A6B;"></span>Озерки</div>
+  <div class="reel-gallery">
+
   <!-- 10 · Анонс · Озерки -->
   <div class="reel-cell">
     <div class="reel-thumb">
@@ -485,6 +534,13 @@
       <span class="sc" onclick="cs(this,'112px')">112px</span>
     </div>
   </div>
+
+  </div>
+</section>
+
+<section class="st-sec" id="st-vladimirskaya">
+  <div class="st-head"><span class="st-bullet" style="background:#A488CC;"></span>Владимирская</div>
+  <div class="reel-gallery">
 
   <!-- 11 · Анонс · Владимирская -->
   <div class="reel-cell">
@@ -516,8 +572,8 @@
     </div>
   </div>
 
-
-</div>
+  </div>
+</section>
 
 <div class="wrap">
 
@@ -623,6 +679,22 @@
       setTimeout(()=>el.classList.remove('ok'), 1200);
     });
   }
+
+  // Студии: подсветка активной секции при прокрутке (scroll-spy)
+  (function(){
+    const links=[...document.querySelectorAll('.studio-nav .sn-link')];
+    if(!links.length)return;
+    const map=new Map(links.map(a=>[a.getAttribute('href').slice(1),a]));
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          links.forEach(l=>l.classList.remove('on'));
+          const a=map.get(e.target.id); if(a)a.classList.add('on');
+        }
+      });
+    },{rootMargin:'-45% 0px -45% 0px',threshold:0});
+    document.querySelectorAll('.st-sec').forEach(sec=>io.observe(sec));
+  })();
 </script>
 </body>
 </html>
