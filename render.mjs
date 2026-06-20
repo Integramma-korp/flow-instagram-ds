@@ -41,7 +41,7 @@ for (const { file, sel, themes } of PAGES) {
   // убираем превью-масштаб и UI-обвязку, показываем элементы в натуральную величину
   await page.addStyleTag({ content: `
     .stage{zoom:1!important;transform:none!important;}
-    .bar,.cap,.note,.sec{display:none!important;}
+    .bar,.cap,.note,.sec,.studio-nav,.st-head{display:none!important;}
     .gallery{gap:0!important;padding:0!important;flex-wrap:nowrap!important;overflow:visible!important;}
     .cslide-seam{display:none!important;}
   `});

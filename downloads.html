@@ -120,6 +120,11 @@ const LABELS = {
   'post-fact':        'Факт · 90 дней',
   'post-announce':    'Анонс класса',
   'post-photo-tip':   'Фото · совет',
+  // posts square — студии
+  'post-announce-baltiyskaya':    'Анонс · Балтийская',
+  'post-announce-murino':         'Анонс · Мурино',
+  'post-announce-ozerki':         'Анонс · Озерки',
+  'post-announce-vladimirskaya':  'Анонс · Владимирская',
   // posts portrait
   'post-photo-headline': 'Фото · заголовок',
   'post-photo-promo':    'Фото · промо',
@@ -169,6 +174,7 @@ document.getElementById('carousels-grid').innerHTML = [
 
 document.getElementById('posts-sq-grid').innerHTML = [
   'post-quote','post-offer','post-fact','post-announce','post-photo-tip',
+  'post-announce-baltiyskaya','post-announce-murino','post-announce-ozerki','post-announce-vladimirskaya',
 ].map(s => card(s, '', BOTH)).join('');
 
 document.getElementById('posts-pt-grid').innerHTML = [
